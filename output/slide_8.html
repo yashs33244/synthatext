@@ -1,0 +1,106 @@
+<div id="slide" style="width:1280px; height:720px; position:relative; background-color:#FFFFFF; overflow:hidden; font-family:Arial, sans-serif;">
+
+    <!-- Title Section -->
+    <div style="position:absolute; top:30px; left:60px; width:1160px; height:40px; border-bottom: 2px solid #004080;">
+        <span style="font-size:28px; font-weight:bold; color:#004080;">Layer 2 - Data Link / Layer 3 - Network</span>
+    </div>
+    
+    <div style="position:absolute; top:80px; left:60px; width:1160px; height:20px;">
+        <span style="font-size:14px; color:#666666;">Essential diagnostic commands for physical addressing and logical routing</span>
+    </div>
+
+    <!-- COLUMN 1: LAYER 2 -->
+    <div style="position:absolute; top:120px; left:60px; width:560px; height:30px; border-bottom:1px solid #CCC;">
+        <span style="font-size:16px; font-weight:bold; color:#004080;">Layer 2: Data Link Diagnostics</span>
+    </div>
+
+    <!-- L2 Item 1: ARP/Neighbor -->
+    <div style="position:absolute; top:165px; left:60px; width:560px; height:120px; background-color:#F5F5F5; border-left:4px solid #0066CC; padding:15px; box-sizing:border-box;">
+        <span style="font-size:12px; font-weight:bold; color:#333333;">ARP Cache & Neighbor Table</span>
+        <div style="margin-top:10px;">
+            <div style="margin-bottom:8px;">
+                <span style="font-family:'Courier New', monospace; font-size:12px; font-weight:bold; color:#333333; background-color:#E0E0E0; padding:3px 6px; border-radius:3px;">arp -a</span>
+                <span style="font-size:11px; color:#666666; margin-left:10px;">Legacy command to show ARP cache (MAC addresses)</span>
+            </div>
+            <div>
+                <span style="font-family:'Courier New', monospace; font-size:12px; font-weight:bold; color:#333333; background-color:#E0E0E0; padding:3px 6px; border-radius:3px;">ip neighbor show</span>
+                <span style="font-size:11px; color:#666666; margin-left:10px;">Modern equivalent; displays neighbor objects</span>
+            </div>
+        </div>
+        <div style="margin-top:8px; font-size:10px; color:#555; font-style:italic;">
+            Use to verify if the device can resolve local MAC addresses for IP communication.
+        </div>
+    </div>
+
+    <!-- L2 Item 2: Bridge -->
+    <div style="position:absolute; top:300px; left:60px; width:560px; height:90px; background-color:#F5F5F5; border-left:4px solid #66B3FF; padding:15px; box-sizing:border-box;">
+        <span style="font-size:12px; font-weight:bold; color:#333333;">Bridge Configuration</span>
+        <div style="margin-top:10px;">
+            <span style="font-family:'Courier New', monospace; font-size:12px; font-weight:bold; color:#333333; background-color:#E0E0E0; padding:3px 6px; border-radius:3px;">bridge link show</span>
+            <span style="font-size:11px; color:#666666; margin-left:10px;">Show bridge link status and ports</span>
+        </div>
+        <div style="margin-top:8px; font-size:10px; color:#555; font-style:italic;">
+            Essential for diagnosing virtual interfaces and software bridges (common in Docker/VMs).
+        </div>
+    </div>
+
+    <!-- COLUMN 2: LAYER 3 -->
+    <div style="position:absolute; top:120px; left:660px; width:560px; height:30px; border-bottom:1px solid #CCC;">
+        <span style="font-size:16px; font-weight:bold; color:#004080;">Layer 3: Network Diagnostics</span>
+    </div>
+
+    <!-- L3 Item 1: IP Address -->
+    <div style="position:absolute; top:165px; left:660px; width:560px; height:80px; background-color:#F5F5F5; border-left:4px solid #0066CC; padding:15px; box-sizing:border-box;">
+        <span style="font-size:12px; font-weight:bold; color:#333333;">Interface Configuration</span>
+        <div style="margin-top:10px;">
+            <span style="font-family:'Courier New', monospace; font-size:12px; font-weight:bold; color:#333333; background-color:#E0E0E0; padding:3px 6px; border-radius:3px;">ip addr show</span>
+            <span style="font-size:11px; color:#666666; margin-left:10px;">Display IP addresses and property info</span>
+        </div>
+    </div>
+
+    <!-- L3 Item 2: Routing -->
+    <div style="position:absolute; top:260px; left:660px; width:560px; height:80px; background-color:#F5F5F5; border-left:4px solid #0066CC; padding:15px; box-sizing:border-box;">
+        <span style="font-size:12px; font-weight:bold; color:#333333;">Routing Logic</span>
+        <div style="margin-top:10px;">
+            <span style="font-family:'Courier New', monospace; font-size:12px; font-weight:bold; color:#333333; background-color:#E0E0E0; padding:3px 6px; border-radius:3px;">ip route show</span>
+            <span style="font-size:11px; color:#666666; margin-left:10px;">Show kernel routing table</span>
+        </div>
+    </div>
+
+    <!-- L3 Item 3: Connectivity Tools -->
+    <div style="position:absolute; top:355px; left:660px; width:560px; height:150px; background-color:#F5F5F5; border-left:4px solid #66B3FF; padding:15px; box-sizing:border-box;">
+        <span style="font-size:12px; font-weight:bold; color:#333333;">Reachability & Path Analysis</span>
+        <div style="margin-top:10px;">
+            <div style="margin-bottom:8px;">
+                <span style="font-family:'Courier New', monospace; font-size:12px; font-weight:bold; color:#333333; background-color:#E0E0E0; padding:3px 6px; border-radius:3px;">ping 8.8.8.8</span>
+                <span style="font-size:11px; color:#666666; margin-left:10px;">Test basic end-to-end connectivity (ICMP)</span>
+            </div>
+            <div style="margin-bottom:8px;">
+                <span style="font-family:'Courier New', monospace; font-size:12px; font-weight:bold; color:#333333; background-color:#E0E0E0; padding:3px 6px; border-radius:3px;">traceroute google.com</span>
+                <span style="font-size:11px; color:#666666; margin-left:10px;">Map the packet path hop-by-hop</span>
+            </div>
+            <div>
+                <span style="font-family:'Courier New', monospace; font-size:12px; font-weight:bold; color:#333333; background-color:#E0E0E0; padding:3px 6px; border-radius:3px;">mtr google.com</span>
+                <span style="font-size:11px; color:#666666; margin-left:10px;">Real-time traceroute with packet loss stats</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Key Insight Box -->
+    <div style="position:absolute; top:540px; left:60px; width:1160px; height:100px; background-color:#FFF8E1; border:2px solid #FFA000; padding:20px; box-sizing:border-box;">
+        <span style="font-size:14px; font-weight:bold; color:#FFA000; text-transform:uppercase;">So What?</span>
+        <div style="margin-top:10px; font-size:13px; color:#333333; line-height:1.5;">
+            Network troubleshooting must follow the OSI model bottom-up. Always verify <b>Layer 2</b> (local physical connectivity and ARP resolution) before diagnosing <b>Layer 3</b> (IP routing and internet reachability). If <code>ip neighbor</code> fails, <code>ping</code> will never succeed.
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div style="position:absolute; top:680px; left:60px; width:800px; height:20px;">
+        <span style="font-size:9px; color:#999999;">Source: Linux Networking Documentation; Network Administrator Guide</span>
+    </div>
+
+    <div style="position:absolute; top:680px; left:1180px; width:40px; height:20px; text-align:right;">
+        <span style="font-size:10px; color:#999999;">8</span>
+    </div>
+
+</div>

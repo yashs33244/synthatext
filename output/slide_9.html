@@ -1,0 +1,115 @@
+<div id="slide" style="width:1280px; height:720px; position:relative; background-color:#FFFFFF; overflow:hidden; font-family:Arial, sans-serif;">
+
+    <!-- Header Section -->
+    <div style="position:absolute; top:40px; left:60px; width:1160px; height:40px;">
+        <h1 style="margin:0; font-size:32px; color:#004080; font-weight:bold;">Layer 4 - Transport</h1>
+    </div>
+    <div style="position:absolute; top:85px; left:60px; width:1160px; height:20px;">
+        <p style="margin:0; font-size:14px; color:#666666;">Essential toolset for socket monitoring, connectivity verification, and security auditing</p>
+    </div>
+
+    <!-- Blue Divider Line -->
+    <div style="position:absolute; top:115px; left:60px; width:1160px; height:2px; background-color:#004080;"></div>
+
+    <!-- Left Content Column: Local Monitoring -->
+    <div style="position:absolute; top:140px; left:60px; width:560px; height:230px; background-color:#F5F5F5; border-left:4px solid #004080; box-sizing:border-box; padding:20px;">
+        <div style="font-size:16px; font-weight:bold; color:#004080; margin-bottom:15px;">1. Host-Based Socket Monitoring</div>
+        
+        <div style="margin-bottom:15px;">
+            <div style="font-family:'Courier New', monospace; font-weight:bold; color:#333333; background-color:#E8E8E8; padding:4px; display:inline-block; border-radius:2px; font-size:12px;">netstat -tuln</div>
+            <div style="font-size:11px; color:#333333; margin-top:5px; line-height:1.4;">
+                • Traditional command to display <b>T</b>CP/<b>U</b>DP <b>L</b>istening ports <b>N</b>umerically.<br/>
+                • universally available but slower on systems with many connections.<br/>
+                • <i>Usage: Verifying if a service is actually running and binding to a port.</i>
+            </div>
+        </div>
+
+        <div>
+            <div style="font-family:'Courier New', monospace; font-weight:bold; color:#333333; background-color:#E8E8E8; padding:4px; display:inline-block; border-radius:2px; font-size:12px;">ss -tuln</div>
+            <div style="font-size:11px; color:#333333; margin-top:5px; line-height:1.4;">
+                • Modern replacement for netstat; dumps socket stats directly from kernel.<br/>
+                • significantly faster and provides more detailed TCP state information.<br/>
+                • <i>Usage: Preferred tool for high-performance diagnostics on modern Linux.</i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Right Content Column: Remote Testing -->
+    <div style="position:absolute; top:140px; left:660px; width:560px; height:230px; background-color:#E8F4FD; border-left:4px solid #0066CC; box-sizing:border-box; padding:20px;">
+        <div style="font-size:16px; font-weight:bold; color:#004080; margin-bottom:15px;">2. Network Connectivity & Discovery</div>
+        
+        <div style="margin-bottom:15px;">
+            <div style="font-family:'Courier New', monospace; font-weight:bold; color:#333333; background-color:#FFFFFF; padding:4px; display:inline-block; border:1px solid #CCCCCC; border-radius:2px; font-size:12px;">nc -zv host 80</div>
+            <div style="font-size:11px; color:#333333; margin-top:5px; line-height:1.4;">
+                • Netcat (nc) in <b>Z</b>ero-I/O mode (scan) with <b>V</b>erbose output.<br/>
+                • "Swiss Army Knife" for reading/writing data across network connections.<br/>
+                • <i>Usage: Quick connectivity checks to specific ports (firewall validation).</i>
+            </div>
+        </div>
+
+        <div>
+            <div style="font-family:'Courier New', monospace; font-weight:bold; color:#333333; background-color:#FFFFFF; padding:4px; display:inline-block; border:1px solid #CCCCCC; border-radius:2px; font-size:12px;">nmap -p 1-1000 host</div>
+            <div style="font-size:11px; color:#333333; margin-top:5px; line-height:1.4;">
+                • Network Mapper; scans a range of ports on a remote host.<br/>
+                • Identifies open ports, service versions, and OS fingerprints.<br/>
+                • <i>Usage: Security auditing and network inventory discovery.</i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Comparison Table Section -->
+    <div style="position:absolute; top:400px; left:60px; width:1160px; height:160px;">
+        <div style="font-size:14px; font-weight:bold; color:#333333; margin-bottom:10px;">Tool Capabilities Summary</div>
+        <table style="width:100%; border-collapse:collapse; font-size:11px; color:#333333;">
+            <tr style="background-color:#004080; color:#FFFFFF; height:25px;">
+                <th style="text-align:left; padding:8px; width:15%;">Command</th>
+                <th style="text-align:left; padding:8px; width:15%;">Category</th>
+                <th style="text-align:left; padding:8px; width:40%;">Function</th>
+                <th style="text-align:left; padding:8px; width:30%;">Key Benefit</th>
+            </tr>
+            <tr style="background-color:#FFFFFF; border-bottom:1px solid #CCCCCC; height:25px;">
+                <td style="padding:8px; font-family:'Courier New';">netstat</td>
+                <td style="padding:8px;">Monitoring</td>
+                <td style="padding:8px;">Lists active connections and listening ports</td>
+                <td style="padding:8px;">Legacy compatibility</td>
+            </tr>
+            <tr style="background-color:#F5F5F5; border-bottom:1px solid #CCCCCC; height:25px;">
+                <td style="padding:8px; font-family:'Courier New';">ss</td>
+                <td style="padding:8px;">Monitoring</td>
+                <td style="padding:8px;">Investigates sockets via kernel API</td>
+                <td style="padding:8px;">Speed & efficiency</td>
+            </tr>
+            <tr style="background-color:#FFFFFF; border-bottom:1px solid #CCCCCC; height:25px;">
+                <td style="padding:8px; font-family:'Courier New';">nc</td>
+                <td style="padding:8px;">Testing</td>
+                <td style="padding:8px;">Establishes raw TCP/UDP connections</td>
+                <td style="padding:8px;">Simple connectivity validation</td>
+            </tr>
+            <tr style="background-color:#F5F5F5; border-bottom:1px solid #CCCCCC; height:25px;">
+                <td style="padding:8px; font-family:'Courier New';">nmap</td>
+                <td style="padding:8px;">Security</td>
+                <td style="padding:8px;">Systematic port scanning and reconnaissance</td>
+                <td style="padding:8px;">Comprehensive discovery</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Key Insight Box -->
+    <div style="position:absolute; top:580px; left:60px; width:1160px; height:80px; background-color:#FFF8E1; border:2px solid #FFA000; box-sizing:border-box; padding:15px; display:flex; align-items:center;">
+        <div>
+            <span style="color:#FFA000; font-weight:bold; font-size:14px; text-transform:uppercase; margin-right:10px;">Strategic Insight</span>
+            <div style="color:#333333; font-size:12px; margin-top:5px;">
+                Distinguishing between <b>service availability</b> (checked via <code>ss</code>/<code>netstat</code> on localhost) and <b>network reachability</b> (checked via <code>nc</code>/<code>nmap</code> remotely) is crucial for isolating root causes. If a service is listening locally but unreachable via netcat, the issue lies in the network (firewall/routing), not the application.
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div style="position:absolute; top:690px; left:60px; font-size:9px; color:#999999;">
+        Source: Linux Network Administrator's Guide; Enterprise Security Best Practices
+    </div>
+    <div style="position:absolute; top:690px; left:1180px; font-size:10px; color:#333333; font-weight:bold;">
+        9
+    </div>
+
+</div>

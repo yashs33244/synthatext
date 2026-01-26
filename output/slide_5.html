@@ -1,0 +1,196 @@
+<div id="slide" style="width:1280px; height:720px; position:relative; background-color:#FFFFFF; overflow:hidden; font-family:Arial, sans-serif;">
+
+    <!-- Title Section -->
+    <div style="position:absolute; top:30px; left:60px; width:1160px; height:40px; font-size:32px; font-weight:bold; color:#004080;">
+        Deep Dive: Network Layers & Protocols
+    </div>
+    <div style="position:absolute; top:75px; left:60px; width:1160px; height:20px; font-size:14px; color:#666666;">
+        Detailed breakdown of functions, key concepts, and technologies across the OSI model layers
+    </div>
+
+    <!-- COLUMN 1: LAYERS 1 & 2 -->
+    <!-- Layer 1 -->
+    <div style="position:absolute; top:120px; left:60px; width:360px; height:250px; border:1px solid #E0E0E0; background-color:#F9F9F9;">
+        <div style="position:absolute; top:0; left:0; width:100%; height:30px; background-color:#004080; color:white; padding:8px 10px; font-size:12px; font-weight:bold; box-sizing:border-box;">
+            Layer 1: Physical Layer ⚡
+        </div>
+        <div style="position:absolute; top:40px; left:15px; width:330px; font-size:11px; color:#333333; line-height:1.4;">
+            <span style="font-weight:bold; color:#0066CC;">Function:</span> Transmits raw bits (0s/1s) over physical media. Defines electrical/optical specs, voltage, and connectors.<br/><br/>
+            <span style="font-weight:bold; color:#0066CC;">Key Concepts:</span>
+            <ul style="margin:5px 0 5px 15px; padding:0; list-style-type:disc;">
+                <li><span style="font-weight:bold;">Bandwidth:</span> Capacity (Mbps, Gbps)</li>
+                <li><span style="font-weight:bold;">Latency:</span> Travel time</li>
+            </ul>
+            <span style="font-weight:bold; color:#0066CC;">Technologies:</span>
+            <div style="display:flex; flex-wrap:wrap; gap:5px; margin-top:5px;">
+                <span style="background:#E8F4FD; padding:2px 6px; border-radius:3px;">Copper (Cat6)</span>
+                <span style="background:#E8F4FD; padding:2px 6px; border-radius:3px;">Fiber Optic</span>
+                <span style="background:#E8F4FD; padding:2px 6px; border-radius:3px;">Wi-Fi (802.11ax)</span>
+                <span style="background:#E8F4FD; padding:2px 6px; border-radius:3px;">Bluetooth</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Layer 2 -->
+    <div style="position:absolute; top:390px; left:60px; width:360px; height:270px; border:1px solid #E0E0E0; background-color:#F9F9F9;">
+        <div style="position:absolute; top:0; left:0; width:100%; height:30px; background-color:#004080; color:white; padding:8px 10px; font-size:12px; font-weight:bold; box-sizing:border-box;">
+            Layer 2: Data Link Layer 🔗
+        </div>
+        <div style="position:absolute; top:40px; left:15px; width:330px; font-size:11px; color:#333333; line-height:1.4;">
+            <span style="font-weight:bold; color:#0066CC;">Function:</span> Node-to-node transfer on the same network. Handles error detection and physical addressing.<br/><br/>
+            
+            <div style="background-color:#FFFFFF; border:1px solid #DDD; padding:8px; margin-bottom:8px;">
+                <span style="font-weight:bold; color:#333333;">MAC Address (Hardware ID)</span><br/>
+                <span style="font-family:monospace; color:#666;">AA:BB:CC:DD:EE:FF (48-bit)</span>
+            </div>
+
+            <span style="font-weight:bold; color:#0066CC;">Key Concepts:</span>
+            <ul style="margin:5px 0 5px 15px; padding:0; list-style-type:disc;">
+                <li><span style="font-weight:bold;">Frame:</span> Data unit at this layer</li>
+                <li><span style="font-weight:bold;">ARP:</span> Maps IP to MAC addresses</li>
+            </ul>
+            <span style="font-weight:bold; color:#0066CC;">Devices & Protocols:</span><br/>
+            Switches, Bridges, Ethernet (802.3), PPP
+        </div>
+    </div>
+
+    <!-- COLUMN 2: LAYERS 3 & 4 -->
+    <!-- Layer 3 -->
+    <div style="position:absolute; top:120px; left:460px; width:360px; height:270px; border:1px solid #E0E0E0; background-color:#F9F9F9;">
+        <div style="position:absolute; top:0; left:0; width:100%; height:30px; background-color:#004080; color:white; padding:8px 10px; font-size:12px; font-weight:bold; box-sizing:border-box;">
+            Layer 3: Network Layer 🗺️
+        </div>
+        <div style="position:absolute; top:40px; left:15px; width:330px; font-size:11px; color:#333333; line-height:1.4;">
+            <span style="font-weight:bold; color:#0066CC;">Function:</span> Logical addressing (IP), routing packets between networks, and path determination.<br/>
+            <span style="font-weight:bold; color:#0066CC;">Protocols:</span> IP (IPv4/IPv6), ICMP (Ping), OSPF.<br/><br/>
+            
+            <span style="font-weight:bold; font-size:10px;">IPv4 Address Classes & Private Ranges:</span>
+            <table style="width:100%; border-collapse:collapse; font-size:9px; margin-top:5px; background:white;">
+                <tr style="background-color:#E8F4FD;">
+                    <th style="text-align:left; padding:4px; border:1px solid #CCC;">Class</th>
+                    <th style="text-align:left; padding:4px; border:1px solid #CCC;">Range / Private</th>
+                    <th style="text-align:left; padding:4px; border:1px solid #CCC;">Purpose</th>
+                </tr>
+                <tr>
+                    <td style="padding:4px; border:1px solid #CCC;">A</td>
+                    <td style="padding:4px; border:1px solid #CCC;">1.0.0.0 - 126.x<br/><span style="color:#666;">(Priv: 10.0.0.0/8)</span></td>
+                    <td style="padding:4px; border:1px solid #CCC;">Large Orgs</td>
+                </tr>
+                <tr>
+                    <td style="padding:4px; border:1px solid #CCC;">B</td>
+                    <td style="padding:4px; border:1px solid #CCC;">128.0.0.0 - 191.x<br/><span style="color:#666;">(Priv: 172.16.0.0/12)</span></td>
+                    <td style="padding:4px; border:1px solid #CCC;">Medium</td>
+                </tr>
+                <tr>
+                    <td style="padding:4px; border:1px solid #CCC;">C</td>
+                    <td style="padding:4px; border:1px solid #CCC;">192.0.0.0 - 223.x<br/><span style="color:#666;">(Priv: 192.168.0.0/16)</span></td>
+                    <td style="padding:4px; border:1px solid #CCC;">Small/Home</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Layer 4 -->
+    <div style="position:absolute; top:410px; left:460px; width:360px; height:250px; border:1px solid #E0E0E0; background-color:#F9F9F9;">
+        <div style="position:absolute; top:0; left:0; width:100%; height:30px; background-color:#004080; color:white; padding:8px 10px; font-size:12px; font-weight:bold; box-sizing:border-box;">
+            Layer 4: Transport Layer 📦
+        </div>
+        <div style="position:absolute; top:40px; left:15px; width:330px; font-size:11px; color:#333333; line-height:1.4;">
+            <span style="font-weight:bold; color:#0066CC;">Function:</span> End-to-end communication, reliability, flow control, and port addressing.<br/><br/>
+            
+            <div style="display:flex; justify-content:space-between; margin-bottom:10px;">
+                <div style="width:48%; background:#e8f5e9; border:1px solid #2e7d32; padding:5px; border-radius:3px;">
+                    <span style="font-weight:bold; color:#2e7d32; font-size:10px;">TCP</span><br/>
+                    <span style="font-size:9px;">Reliable, Ordered, Connection-oriented (Web, Email)</span>
+                </div>
+                <div style="width:48%; background:#fff3e0; border:1px solid #e65100; padding:5px; border-radius:3px;">
+                    <span style="font-weight:bold; color:#e65100; font-size:10px;">UDP</span><br/>
+                    <span style="font-size:9px;">Fast, No guarantee, Connectionless (Video, DNS)</span>
+                </div>
+            </div>
+
+            <span style="font-weight:bold; font-size:10px;">Common Ports:</span>
+            <div style="display:flex; flex-wrap:wrap; gap:5px; font-size:9px; margin-top:3px;">
+                <span style="border:1px solid #CCC; padding:2px 5px; background:white;"><b>22:</b> SSH</span>
+                <span style="border:1px solid #CCC; padding:2px 5px; background:white;"><b>53:</b> DNS</span>
+                <span style="border:1px solid #CCC; padding:2px 5px; background:white;"><b>80:</b> HTTP</span>
+                <span style="border:1px solid #CCC; padding:2px 5px; background:white;"><b>443:</b> HTTPS</span>
+                <span style="border:1px solid #CCC; padding:2px 5px; background:white;"><b>3306:</b> MySQL</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- COLUMN 3: LAYERS 5-7 -->
+    <!-- Layers 5 & 6 -->
+    <div style="position:absolute; top:120px; left:860px; width:360px; height:150px; border:1px solid #E0E0E0; background-color:#F9F9F9;">
+        <div style="position:absolute; top:0; left:0; width:100%; height:30px; background-color:#666666; color:white; padding:8px 10px; font-size:12px; font-weight:bold; box-sizing:border-box;">
+            Layers 5 & 6: Session & Presentation (OSI)
+        </div>
+        <div style="position:absolute; top:40px; left:15px; width:330px; font-size:11px; color:#333333; line-height:1.4;">
+            <div style="margin-bottom:8px;">
+                <span style="font-weight:bold; color:#0066CC;">Layer 5 (Session):</span> Manages sessions/connections.<br/>
+                <span style="color:#666; font-size:10px;">Examples: RPC, SQL Sessions, NetBIOS</span>
+            </div>
+            <div>
+                <span style="font-weight:bold; color:#0066CC;">Layer 6 (Presentation):</span> Translation, encryption, compression.<br/>
+                <span style="color:#666; font-size:10px;">Examples: SSL/TLS, JPEG, ASCII, MPEG</span>
+            </div>
+            <div style="margin-top:5px; font-style:italic; font-size:10px; color:#666;">*In TCP/IP, these are handled by Layer 7 or Layer 4.</div>
+        </div>
+    </div>
+
+    <!-- Layer 7 -->
+    <div style="position:absolute; top:290px; left:860px; width:360px; height:250px; border:1px solid #E0E0E0; background-color:#F9F9F9;">
+        <div style="position:absolute; top:0; left:0; width:100%; height:30px; background-color:#004080; color:white; padding:8px 10px; font-size:12px; font-weight:bold; box-sizing:border-box;">
+            Layer 7: Application Layer 🖥️
+        </div>
+        <div style="position:absolute; top:40px; left:15px; width:330px; font-size:11px; color:#333333; line-height:1.4;">
+            <span style="font-weight:bold; color:#0066CC;">Function:</span> User interface to network services; application-specific protocols.<br/><br/>
+            
+            <table style="width:100%; border-collapse:collapse; font-size:10px; background:white;">
+                <tr style="background-color:#E8F4FD;">
+                    <th style="text-align:left; padding:4px; border-bottom:1px solid #CCC;">Protocol</th>
+                    <th style="text-align:left; padding:4px; border-bottom:1px solid #CCC;">Port</th>
+                    <th style="text-align:left; padding:4px; border-bottom:1px solid #CCC;">Use Case</th>
+                </tr>
+                <tr>
+                    <td style="padding:4px; border-bottom:1px solid #EEE;">HTTP/S</td>
+                    <td style="padding:4px; border-bottom:1px solid #EEE;">80/443</td>
+                    <td style="padding:4px; border-bottom:1px solid #EEE;">Web Browsing</td>
+                </tr>
+                <tr>
+                    <td style="padding:4px; border-bottom:1px solid #EEE;">SMTP</td>
+                    <td style="padding:4px; border-bottom:1px solid #EEE;">25</td>
+                    <td style="padding:4px; border-bottom:1px solid #EEE;">Sending Email</td>
+                </tr>
+                <tr>
+                    <td style="padding:4px; border-bottom:1px solid #EEE;">FTP</td>
+                    <td style="padding:4px; border-bottom:1px solid #EEE;">21</td>
+                    <td style="padding:4px; border-bottom:1px solid #EEE;">File Transfer</td>
+                </tr>
+                <tr>
+                    <td style="padding:4px; border-bottom:1px solid #EEE;">DHCP</td>
+                    <td style="padding:4px; border-bottom:1px solid #EEE;">67/68</td>
+                    <td style="padding:4px; border-bottom:1px solid #EEE;">Assigning IPs</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Insight Box -->
+    <div style="position:absolute; top:560px; left:860px; width:360px; height:100px; background-color:#FFF8E1; border:2px solid #FFA000; padding:15px; box-sizing:border-box;">
+        <div style="font-weight:bold; color:#FFA000; font-size:12px; margin-bottom:5px;">KEY INSIGHT</div>
+        <div style="font-size:11px; line-height:1.4; color:#333;">
+            <span style="font-weight:bold;">Encapsulation drives modularity:</span> Each layer relies solely on the service of the layer below it, allowing hardware (L1/L2) and software (L7) to evolve independently without breaking the stack.
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div style="position:absolute; top:680px; left:60px; font-size:9px; color:#999999;">
+        Source: Network Fundamentals Documentation; TCP/IP Guide; OSI Model Standards
+    </div>
+    <div style="position:absolute; top:680px; left:1180px; font-size:10px; color:#333333; text-align:right;">
+        5
+    </div>
+
+</div>

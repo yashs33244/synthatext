@@ -1,0 +1,89 @@
+<div id="slide" style="width:1280px; height:720px; position:relative; background-color:#FFFFFF; overflow:hidden; font-family:Arial, sans-serif;">
+
+    <!-- Title Section -->
+    <div style="position:absolute; top:30px; left:60px; width:1160px; height:40px; color:#004080; font-size:28px; font-weight:bold; line-height:40px;">
+        Test Local Connectivity / Test Gateway Connectivity
+    </div>
+    <div style="position:absolute; top:75px; left:60px; width:1160px; height:20px; color:#666666; font-size:14px; line-height:20px;">
+        Automated validation sequence for network stack and upstream routing
+    </div>
+
+    <!-- Left Column: Source Code Representation -->
+    <div style="position:absolute; top:120px; left:60px; width:560px; height:25px; color:#004080; font-size:16px; font-weight:bold; border-bottom: 2px solid #004080;">
+        Script Logic & Execution Flow
+    </div>
+
+    <!-- Code Container -->
+    <div style="position:absolute; top:160px; left:60px; width:560px; height:360px; background-color:#F5F5F5; border:1px solid #CCCCCC; padding:20px; font-family:'Courier New', monospace; font-size:12px; color:#333333; box-sizing:border-box;">
+        <span style="color:#0066CC;">echo</span> ""<br/>
+        <span style="color:#0066CC;">echo</span> "🏠 Local Connectivity (localhost):"<br/>
+        ping -c 1 127.0.0.1 > /dev/null <span style="color:#CC0000;">&&</span> <span style="color:#0066CC;">echo</span> "✅ OK" <span style="color:#CC0000;">||</span> <span style="color:#0066CC;">echo</span> "❌ Failed"<br/>
+        <br/>
+        <span style="color:#999999;"># Extract default gateway IP</span><br/>
+        gateway=$(ip route | grep default | awk '{print $3}')<br/>
+        <br/>
+        <span style="color:#9900CC;">if</span> [ -n "$gateway" ]; <span style="color:#9900CC;">then</span><br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#0066CC;">echo</span> ""<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#0066CC;">echo</span> "🔗 Gateway Connectivity ($gateway):"<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;ping -c 1 $gateway > /dev/null <span style="color:#CC0000;">&&</span> <span style="color:#0066CC;">echo</span> "✅ OK" <span style="color:#CC0000;">||</span> <span style="color:#0066CC;">echo</span> "❌ Failed"<br/>
+        <span style="color:#9900CC;">fi</span>
+    </div>
+
+    <!-- Right Column: Functional Breakdown -->
+    <div style="position:absolute; top:120px; left:660px; width:560px; height:25px; color:#004080; font-size:16px; font-weight:bold; border-bottom: 2px solid #004080;">
+        Functional Analysis & Validation Steps
+    </div>
+
+    <!-- Analysis Block 1 -->
+    <div style="position:absolute; top:160px; left:660px; width:560px; height:80px; background-color:#E8F4FD; padding:15px; box-sizing:border-box; border-left:4px solid #0066CC;">
+        <div style="font-size:13px; font-weight:bold; color:#004080; margin-bottom:5px;">1. Stack Integrity Verification</div>
+        <div style="font-size:11px; line-height:15px; color:#333333;">
+            • Targets <strong>localhost (127.0.0.1)</strong> to verify the network adapter driver and TCP/IP stack functionality.<br/>
+            • Independent of physical cabling or external network status.
+        </div>
+    </div>
+
+    <!-- Analysis Block 2 -->
+    <div style="position:absolute; top:255px; left:660px; width:560px; height:80px; background-color:#FFFFFF; border:1px solid #E0E0E0; padding:15px; box-sizing:border-box; border-left:4px solid #66B3FF;">
+        <div style="font-size:13px; font-weight:bold; color:#004080; margin-bottom:5px;">2. Dynamic Route Discovery</div>
+        <div style="font-size:11px; line-height:15px; color:#333333;">
+            • Automatically identifies the next-hop router using <code>ip route</code>.<br/>
+            • Adapts to changing network environments (DHCP/Static) without hardcoded IPs.
+        </div>
+    </div>
+
+    <!-- Analysis Block 3 -->
+    <div style="position:absolute; top:350px; left:660px; width:560px; height:80px; background-color:#F5F5F5; padding:15px; box-sizing:border-box; border-left:4px solid #999999;">
+        <div style="font-size:13px; font-weight:bold; color:#004080; margin-bottom:5px;">3. Conditional Execution</div>
+        <div style="font-size:11px; line-height:15px; color:#333333;">
+            • Implements logic check <code>if [ -n "$gateway" ]</code> to prevent execution errors if no route exists.<br/>
+            • Ensures script robustness in disconnected (air-gapped) environments.
+        </div>
+    </div>
+
+    <!-- Analysis Block 4 -->
+    <div style="position:absolute; top:445px; left:660px; width:560px; height:80px; background-color:#FFFFFF; border:1px solid #E0E0E0; padding:15px; box-sizing:border-box; border-left:4px solid #FFA000;">
+        <div style="font-size:13px; font-weight:bold; color:#004080; margin-bottom:5px;">4. User Feedback Mechanism</div>
+        <div style="font-size:11px; line-height:15px; color:#333333;">
+            • Suppresses raw ping output (<code>> /dev/null</code>) for cleaner logs.<br/>
+            • Uses standard exit codes (<code>&&</code> / <code>||</code>) to print clear Status Indicators (✅/❌).
+        </div>
+    </div>
+
+    <!-- "So What" Insight Box -->
+    <div style="position:absolute; top:560px; left:60px; width:1160px; height:90px; background-color:#FFF8E1; border:2px solid #FFA000; padding:15px; box-sizing:border-box;">
+        <div style="font-size:14px; font-weight:bold; color:#FFA000; margin-bottom:8px;">KEY INSIGHT: ISOLATION STRATEGY</div>
+        <div style="font-size:12px; line-height:18px; color:#333333;">
+            This two-step verification protocol enables rapid troubleshooting by isolating <strong>local configuration issues</strong> from <strong>upstream network failures</strong>. If the localhost check fails, the issue is internal (OS/Driver); if only the gateway check fails, the issue is external (Router/Switch).
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div style="position:absolute; top:680px; left:60px; font-size:9px; color:#666666;">
+        Source: Network Validation Script Repository
+    </div>
+    <div style="position:absolute; top:680px; left:1180px; font-size:10px; color:#666666; font-weight:bold;">
+        12
+    </div>
+
+</div>

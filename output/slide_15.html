@@ -1,0 +1,187 @@
+<div id="slide" style="width:1280px; height:720px; position:relative; background-color:#FFFFFF; overflow:hidden;">
+
+    <!-- Title Section -->
+    <div style="position:absolute; top:30px; left:60px; width:1160px; height:40px; font-family:Arial, sans-serif; font-size:28px; font-weight:bold; color:#004080;">
+        Troubleshooting Guide & Resource Library
+    </div>
+    <div style="position:absolute; top:65px; left:60px; width:1160px; height:20px; font-family:Arial, sans-serif; font-size:13px; color:#666666;">
+        Layered diagnostic framework, symptom reference, and curated learning materials for network engineers
+    </div>
+
+    <!-- LEFT COLUMN: DIAGNOSTICS -->
+    <!-- Section Header -->
+    <div style="position:absolute; top:110px; left:60px; width:560px; height:20px; font-family:Arial, sans-serif; font-size:14px; font-weight:bold; color:#004080; border-bottom:1px solid #004080;">
+        Common Issues by OSI Layer
+    </div>
+
+    <!-- Layer 1-2 Box -->
+    <div style="position:absolute; top:140px; left:60px; width:270px; height:100px; background-color:#F5F5F5; border-left:4px solid #004080; padding:10px; box-sizing:border-box;">
+        <div style="font-family:Arial, sans-serif; font-size:12px; font-weight:bold; color:#004080; margin-bottom:5px;">Layers 1-2 (Physical/Data)</div>
+        <div style="font-family:Arial, sans-serif; font-size:10px; color:#333333; line-height:1.4;">
+            • Cable disconnected / damaged<br/>
+            • NIC hardware failure<br/>
+            • Wrong VLAN assignment<br/>
+            • Duplex mismatch
+        </div>
+    </div>
+
+    <!-- Layer 3 Box -->
+    <div style="position:absolute; top:140px; left:350px; width:270px; height:100px; background-color:#F5F5F5; border-left:4px solid #0066CC; padding:10px; box-sizing:border-box;">
+        <div style="font-family:Arial, sans-serif; font-size:12px; font-weight:bold; color:#004080; margin-bottom:5px;">Layer 3 (Network)</div>
+        <div style="font-family:Arial, sans-serif; font-size:10px; color:#333333; line-height:1.4;">
+            • Wrong IP configuration<br/>
+            • Subnet mask mismatch<br/>
+            • Missing/Incorrect gateway<br/>
+            • Routing table errors
+        </div>
+    </div>
+
+    <!-- Layer 4 Box -->
+    <div style="position:absolute; top:255px; left:60px; width:270px; height:100px; background-color:#F5F5F5; border-left:4px solid #4B9CD3; padding:10px; box-sizing:border-box;">
+        <div style="font-family:Arial, sans-serif; font-size:12px; font-weight:bold; color:#004080; margin-bottom:5px;">Layer 4 (Transport)</div>
+        <div style="font-family:Arial, sans-serif; font-size:10px; color:#333333; line-height:1.4;">
+            • Port blocked (Security Group)<br/>
+            • Firewall rules dropping packets<br/>
+            • Service/Process not running<br/>
+            • Connection timeout
+        </div>
+    </div>
+
+    <!-- Layer 7 Box -->
+    <div style="position:absolute; top:255px; left:350px; width:270px; height:100px; background-color:#F5F5F5; border-left:4px solid #99CCFF; padding:10px; box-sizing:border-box;">
+        <div style="font-family:Arial, sans-serif; font-size:12px; font-weight:bold; color:#004080; margin-bottom:5px;">Layer 7 (Application)</div>
+        <div style="font-family:Arial, sans-serif; font-size:10px; color:#333333; line-height:1.4;">
+            • DNS resolution failure<br/>
+            • SSL/TLS Certificate expiry<br/>
+            • Application misconfiguration<br/>
+            • Authentication errors
+        </div>
+    </div>
+
+    <!-- Section Header -->
+    <div style="position:absolute; top:375px; left:60px; width:560px; height:20px; font-family:Arial, sans-serif; font-size:14px; font-weight:bold; color:#004080; border-bottom:1px solid #004080;">
+        Quick Troubleshooting Reference
+    </div>
+
+    <!-- Table Header -->
+    <div style="position:absolute; top:405px; left:60px; width:560px; height:25px; background-color:#004080;">
+        <div style="position:absolute; top:5px; left:10px; font-family:Arial, sans-serif; font-size:11px; font-weight:bold; color:#FFFFFF;">Symptom</div>
+        <div style="position:absolute; top:5px; left:180px; font-family:Arial, sans-serif; font-size:11px; font-weight:bold; color:#FFFFFF;">Layer</div>
+        <div style="position:absolute; top:5px; left:260px; font-family:Arial, sans-serif; font-size:11px; font-weight:bold; color:#FFFFFF;">Check</div>
+    </div>
+
+    <!-- Table Rows -->
+    <div style="position:absolute; top:430px; left:60px; width:560px; height:22px; background-color:#FFFFFF; border-bottom:1px solid #DDDDDD;">
+        <div style="position:absolute; top:5px; left:10px; font-family:Arial, sans-serif; font-size:10px; color:#333333;">No link light</div>
+        <div style="position:absolute; top:5px; left:180px; font-family:Arial, sans-serif; font-size:10px; color:#333333;">1</div>
+        <div style="position:absolute; top:5px; left:260px; font-family:Arial, sans-serif; font-size:10px; color:#333333;">Cable, port, NIC</div>
+    </div>
+    <div style="position:absolute; top:452px; left:60px; width:560px; height:22px; background-color:#F9F9F9; border-bottom:1px solid #DDDDDD;">
+        <div style="position:absolute; top:5px; left:10px; font-family:Arial, sans-serif; font-size:10px; color:#333333;">Can't reach local devices</div>
+        <div style="position:absolute; top:5px; left:180px; font-family:Arial, sans-serif; font-size:10px; color:#333333;">2</div>
+        <div style="position:absolute; top:5px; left:260px; font-family:Arial, sans-serif; font-size:10px; color:#333333;">MAC address, switch, VLAN</div>
+    </div>
+    <div style="position:absolute; top:474px; left:60px; width:560px; height:22px; background-color:#FFFFFF; border-bottom:1px solid #DDDDDD;">
+        <div style="position:absolute; top:5px; left:10px; font-family:Arial, sans-serif; font-size:10px; color:#333333;">Can't reach other networks</div>
+        <div style="position:absolute; top:5px; left:180px; font-family:Arial, sans-serif; font-size:10px; color:#333333;">3</div>
+        <div style="position:absolute; top:5px; left:260px; font-family:Arial, sans-serif; font-size:10px; color:#333333;">IP address, subnet, gateway, routing</div>
+    </div>
+    <div style="position:absolute; top:496px; left:60px; width:560px; height:22px; background-color:#F9F9F9; border-bottom:1px solid #DDDDDD;">
+        <div style="position:absolute; top:5px; left:10px; font-family:Arial, sans-serif; font-size:10px; color:#333333;">Connection refused</div>
+        <div style="position:absolute; top:5px; left:180px; font-family:Arial, sans-serif; font-size:10px; color:#333333;">4</div>
+        <div style="position:absolute; top:5px; left:260px; font-family:Arial, sans-serif; font-size:10px; color:#333333;">Port, firewall, service status</div>
+    </div>
+    <div style="position:absolute; top:518px; left:60px; width:560px; height:22px; background-color:#FFFFFF; border-bottom:1px solid #DDDDDD;">
+        <div style="position:absolute; top:5px; left:10px; font-family:Arial, sans-serif; font-size:10px; color:#333333;">Timeout on specific service</div>
+        <div style="position:absolute; top:5px; left:180px; font-family:Arial, sans-serif; font-size:10px; color:#333333;">4-7</div>
+        <div style="position:absolute; top:5px; left:260px; font-family:Arial, sans-serif; font-size:10px; color:#333333;">Service running, firewall, DNS</div>
+    </div>
+    <div style="position:absolute; top:540px; left:60px; width:560px; height:22px; background-color:#F9F9F9; border-bottom:1px solid #DDDDDD;">
+        <div style="position:absolute; top:5px; left:10px; font-family:Arial, sans-serif; font-size:10px; color:#333333;">SSL/TLS errors</div>
+        <div style="position:absolute; top:5px; left:180px; font-family:Arial, sans-serif; font-size:10px; color:#333333;">7</div>
+        <div style="position:absolute; top:5px; left:260px; font-family:Arial, sans-serif; font-size:10px; color:#333333;">Certificate, date/time, cipher suite</div>
+    </div>
+    <div style="position:absolute; top:562px; left:60px; width:560px; height:22px; background-color:#FFFFFF; border-bottom:1px solid #DDDDDD;">
+        <div style="position:absolute; top:5px; left:10px; font-family:Arial, sans-serif; font-size:10px; color:#333333;">DNS not resolving</div>
+        <div style="position:absolute; top:5px; left:180px; font-family:Arial, sans-serif; font-size:10px; color:#333333;">7</div>
+        <div style="position:absolute; top:5px; left:260px; font-family:Arial, sans-serif; font-size:10px; color:#333333;">DNS server, /etc/resolv.conf</div>
+    </div>
+
+    <!-- Insight Box -->
+    <div style="position:absolute; top:600px; left:60px; width:560px; height:60px; background-color:#FFF8E1; border:2px solid #FFA000; padding:10px; box-sizing:border-box;">
+        <div style="font-family:Arial, sans-serif; font-size:12px; font-weight:bold; color:#FFA000; margin-bottom:4px;">DIAGNOSTIC STRATEGY</div>
+        <div style="font-family:Arial, sans-serif; font-size:11px; color:#333333;">
+            Adopting a systematic "bottom-up" approach (Layer 1 to 7) eliminates physical and network configuration issues before debugging complex application logic.
+        </div>
+    </div>
+
+    <!-- RIGHT COLUMN: RESOURCES -->
+    <div style="position:absolute; top:110px; left:660px; width:560px; height:20px; font-family:Arial, sans-serif; font-size:14px; font-weight:bold; color:#004080; border-bottom:1px solid #004080;">
+        Recommended Resources & Tools
+    </div>
+
+    <!-- Row 1: Docs & Learning -->
+    <div style="position:absolute; top:140px; left:660px; width:270px; height:150px;">
+        <div style="font-family:Arial, sans-serif; font-size:12px; font-weight:bold; color:#0066CC; margin-bottom:8px;">📖 Official Documentation</div>
+        <div style="font-family:Arial, sans-serif; font-size:10px; color:#333333; line-height:1.6;">
+            • RFC 1122 - Internet Host Requirements<br/>
+            • RFC 791 - Internet Protocol<br/>
+            • RFC 793 - Transmission Control Protocol
+        </div>
+    </div>
+    <div style="position:absolute; top:140px; left:950px; width:270px; height:150px;">
+        <div style="font-family:Arial, sans-serif; font-size:12px; font-weight:bold; color:#0066CC; margin-bottom:8px;">🎓 Learning Resources</div>
+        <div style="font-family:Arial, sans-serif; font-size:10px; color:#333333; line-height:1.6;">
+            • GeeksforGeeks - OSI vs TCP/IP Model<br/>
+            • Network Notes - OSI Model Explained<br/>
+            • freeCodeCamp - TCP/IP Layers<br/>
+            • JMU - Five Layer Model
+        </div>
+    </div>
+
+    <!-- Row 2: Tools & Books -->
+    <div style="position:absolute; top:310px; left:660px; width:270px; height:150px;">
+        <div style="font-family:Arial, sans-serif; font-size:12px; font-weight:bold; color:#0066CC; margin-bottom:8px;">🔧 Interactive Tools</div>
+        <div style="font-family:Arial, sans-serif; font-size:10px; color:#333333; line-height:1.6;">
+            • Subnet Calculator<br/>
+            • Wireshark (Packet Analyzer)<br/>
+            • Nmap (Network Scanner)<br/>
+            • Postman (API Testing)
+        </div>
+    </div>
+    <div style="position:absolute; top:310px; left:950px; width:270px; height:150px;">
+        <div style="font-family:Arial, sans-serif; font-size:12px; font-weight:bold; color:#0066CC; margin-bottom:8px;">📚 Recommended Books</div>
+        <div style="font-family:Arial, sans-serif; font-size:10px; color:#333333; line-height:1.6;">
+            • <i>Computer Networking</i> (Kurose & Ross)<br/>
+            • <i>TCP/IP Illustrated</i> (Stevens)<br/>
+            • <i>Network Warrior</i> (Donahue)
+        </div>
+    </div>
+
+    <!-- Row 3: Video & Cloud -->
+    <div style="position:absolute; top:480px; left:660px; width:270px; height:150px;">
+        <div style="font-family:Arial, sans-serif; font-size:12px; font-weight:bold; color:#0066CC; margin-bottom:8px;">🎥 Video Resources</div>
+        <div style="font-family:Arial, sans-serif; font-size:10px; color:#333333; line-height:1.6;">
+            • Network Direction (YouTube)<br/>
+            • Professor Messer - Network+<br/>
+            • Practical Networking (YouTube)
+        </div>
+    </div>
+    <div style="position:absolute; top:480px; left:950px; width:270px; height:150px;">
+        <div style="font-family:Arial, sans-serif; font-size:12px; font-weight:bold; color:#0066CC; margin-bottom:8px;">☁️ Cloud Networking</div>
+        <div style="font-family:Arial, sans-serif; font-size:10px; color:#333333; line-height:1.6;">
+            • AWS VPC Documentation<br/>
+            • GCP Networking Overview<br/>
+            • Azure Networking Documentation
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div style="position:absolute; top:680px; left:60px; width:800px; height:20px; font-family:Arial, sans-serif; font-size:9px; color:#999999;">
+        Source: IETF RFC Database; Cloud Provider Documentation (AWS, GCP, Azure); Standard Networking Curriculum
+    </div>
+    <div style="position:absolute; top:680px; left:1180px; width:40px; height:20px; font-family:Arial, sans-serif; font-size:10px; color:#333333; text-align:right;">
+        15
+    </div>
+
+</div>

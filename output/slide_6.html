@@ -1,0 +1,195 @@
+<div id="slide" style="width:1280px; height:720px; position:relative; background-color:#FFFFFF; overflow:hidden; font-family:Arial, sans-serif;">
+
+    <!-- Title Section -->
+    <div style="position:absolute; top:30px; left:60px; width:1160px; height:40px; color:#004080; font-size:28px; font-weight:bold;">
+        Common Protocols / Practical Examples
+    </div>
+    <div style="position:absolute; top:70px; left:60px; width:1160px; height:20px; color:#666666; font-size:14px;">
+        Detailed view of DNS resolution, HTTP/S handshakes, data encapsulation, and real-world API flows
+    </div>
+
+    <!-- LEFT COLUMN -->
+
+    <!-- 1. DNS Resolution Process -->
+    <div style="position:absolute; top:115px; left:60px; width:560px; height:260px; border:1px solid #CCC; box-sizing:border-box; background-color:#FFFFFF;">
+        <div style="position:absolute; top:0; left:0; width:100%; height:30px; background-color:#004080; color:white; padding:8px 15px; font-weight:bold; font-size:12px; box-sizing:border-box;">
+            DNS Resolution Process (Full Recursive Lookup)
+        </div>
+        
+        <div style="position:absolute; top:40px; left:20px; width:520px; font-size:11px; color:#333;">
+            <div style="position:absolute; top:0; left:0; width:520px; height:30px; background-color:#E3F2FD; border-radius:4px; padding:8px; box-sizing:border-box;">
+                <span style="font-weight:bold;">1. User</span> types 'google.com' → Checks Local Cache (Miss) → Queries Local DNS
+            </div>
+            
+            <div style="position:absolute; top:30px; left:25px; width:2px; height:15px; background-color:#999;"></div>
+            <div style="position:absolute; top:43px; left:22px; width:0; height:0; border-left:4px solid transparent; border-right:4px solid transparent; border-top:4px solid #999;"></div>
+
+            <div style="position:absolute; top:45px; left:0; width:520px; height:30px; background-color:#F5F5F5; border-radius:4px; padding:8px; box-sizing:border-box;">
+                <span style="font-weight:bold;">2. Local DNS</span> queries <span style="color:#004080; font-weight:bold;">Root Server (.)</span> → Returns .com TLD Server IP
+            </div>
+
+            <div style="position:absolute; top:75px; left:25px; width:2px; height:15px; background-color:#999;"></div>
+            <div style="position:absolute; top:88px; left:22px; width:0; height:0; border-left:4px solid transparent; border-right:4px solid transparent; border-top:4px solid #999;"></div>
+
+            <div style="position:absolute; top:90px; left:0; width:520px; height:30px; background-color:#F5F5F5; border-radius:4px; padding:8px; box-sizing:border-box;">
+                <span style="font-weight:bold;">3. Local DNS</span> queries <span style="color:#004080; font-weight:bold;">TLD Server (.com)</span> → Returns Google Auth Server IP
+            </div>
+
+            <div style="position:absolute; top:120px; left:25px; width:2px; height:15px; background-color:#999;"></div>
+            <div style="position:absolute; top:133px; left:22px; width:0; height:0; border-left:4px solid transparent; border-right:4px solid transparent; border-top:4px solid #999;"></div>
+
+            <div style="position:absolute; top:135px; left:0; width:520px; height:30px; background-color:#F5F5F5; border-radius:4px; padding:8px; box-sizing:border-box;">
+                <span style="font-weight:bold;">4. Local DNS</span> queries <span style="color:#004080; font-weight:bold;">Authoritative Server</span> → Returns 142.250.185.78
+            </div>
+
+            <div style="position:absolute; top:165px; left:25px; width:2px; height:15px; background-color:#999;"></div>
+            <div style="position:absolute; top:178px; left:22px; width:0; height:0; border-left:4px solid transparent; border-right:4px solid transparent; border-top:4px solid #999;"></div>
+
+            <div style="position:absolute; top:180px; left:0; width:520px; height:30px; background-color:#E8F5E9; border-radius:4px; padding:8px; box-sizing:border-box; border:1px solid #4CAF50;">
+                <span style="font-weight:bold;">5. Result:</span> Local DNS caches IP & returns to User → Browser connects
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. HTTP/HTTPS Flow -->
+    <div style="position:absolute; top:395px; left:60px; width:560px; height:275px; border:1px solid #CCC; box-sizing:border-box; background-color:#FFFFFF;">
+        <div style="position:absolute; top:0; left:0; width:100%; height:30px; background-color:#004080; color:white; padding:8px 15px; font-weight:bold; font-size:12px; box-sizing:border-box;">
+            HTTP/HTTPS Request Flow (Sequence)
+        </div>
+        
+        <!-- Actors -->
+        <div style="position:absolute; top:40px; left:100px; width:80px; text-align:center; font-weight:bold; font-size:11px;">Browser</div>
+        <div style="position:absolute; top:40px; left:380px; width:80px; text-align:center; font-weight:bold; font-size:11px;">Server</div>
+        
+        <!-- Vertical Lines -->
+        <div style="position:absolute; top:60px; left:140px; width:1px; height:200px; background-color:#999; border-left:1px dashed #999;"></div>
+        <div style="position:absolute; top:60px; left:420px; width:1px; height:200px; background-color:#999; border-left:1px dashed #999;"></div>
+
+        <!-- TCP Handshake -->
+        <div style="position:absolute; top:70px; left:140px; width:280px; height:15px;">
+            <div style="position:absolute; top:7px; left:0; width:100%; height:1px; background-color:#666;"></div>
+            <div style="position:absolute; top:4px; left:275px; width:0; height:0; border-top:3px solid transparent; border-bottom:3px solid transparent; border-left:5px solid #666;"></div>
+            <div style="position:absolute; top:-5px; left:100px; width:80px; text-align:center; font-size:9px; background:white;">SYN (TCP)</div>
+        </div>
+        <div style="position:absolute; top:90px; left:140px; width:280px; height:15px;">
+            <div style="position:absolute; top:7px; left:0; width:100%; height:1px; background-color:#666;"></div>
+            <div style="position:absolute; top:4px; left:0; width:0; height:0; border-top:3px solid transparent; border-bottom:3px solid transparent; border-right:5px solid #666;"></div>
+            <div style="position:absolute; top:-5px; left:100px; width:80px; text-align:center; font-size:9px; background:white;">SYN-ACK</div>
+        </div>
+        
+        <!-- TLS Block -->
+        <div style="position:absolute; top:115px; left:120px; width:320px; height:30px; background-color:#FFF3E0; border:1px solid #FFCC80; border-radius:4px; text-align:center; padding-top:8px; font-size:10px; color:#E65100;">
+            TLS Handshake (Key Exchange & Encryption Setup)
+        </div>
+
+        <!-- HTTP Request -->
+        <div style="position:absolute; top:160px; left:140px; width:280px; height:15px;">
+            <div style="position:absolute; top:7px; left:0; width:100%; height:2px; background-color:#0066CC;"></div>
+            <div style="position:absolute; top:3px; left:275px; width:0; height:0; border-top:4px solid transparent; border-bottom:4px solid transparent; border-left:6px solid #0066CC;"></div>
+            <div style="position:absolute; top:-8px; left:80px; width:120px; text-align:center; font-size:10px; font-weight:bold; color:#0066CC; background:white;">GET /index.html</div>
+        </div>
+
+        <!-- HTTP Response -->
+        <div style="position:absolute; top:190px; left:140px; width:280px; height:15px;">
+            <div style="position:absolute; top:7px; left:0; width:100%; height:2px; background-color:#2E7D32;"></div>
+            <div style="position:absolute; top:3px; left:0; width:0; height:0; border-top:4px solid transparent; border-bottom:4px solid transparent; border-right:6px solid #2E7D32;"></div>
+            <div style="position:absolute; top:-8px; left:80px; width:120px; text-align:center; font-size:10px; font-weight:bold; color:#2E7D32; background:white;">200 OK (HTML)</div>
+        </div>
+
+        <!-- Fin -->
+        <div style="position:absolute; top:220px; left:140px; width:280px; height:15px;">
+            <div style="position:absolute; top:7px; left:0; width:100%; height:1px; background-color:#666; border-top:1px dotted #666;"></div>
+            <div style="position:absolute; top:-5px; left:100px; width:80px; text-align:center; font-size:9px; background:white; color:#666;">FIN (Close)</div>
+        </div>
+    </div>
+
+    <!-- RIGHT COLUMN -->
+
+    <!-- 3. Encapsulation -->
+    <div style="position:absolute; top:115px; left:660px; width:560px; height:260px; border:1px solid #CCC; box-sizing:border-box; background-color:#FFFFFF;">
+        <div style="position:absolute; top:0; left:0; width:100%; height:30px; background-color:#004080; color:white; padding:8px 15px; font-weight:bold; font-size:12px; box-sizing:border-box;">
+            Data Encapsulation (The "Envelope" Model)
+        </div>
+        
+        <div style="position:absolute; top:45px; left:30px; width:500px; height:195px; font-family:monospace; font-size:10px;">
+            <!-- Layer 2 -->
+            <div style="position:absolute; top:0; left:0; width:500px; height:195px; background-color:#F5F5F5; border:1px solid #999; padding:5px; box-sizing:border-box;">
+                <span style="font-weight:bold; color:#666;">ETHERNET FRAME</span> <span style="color:#999; float:right;">(MAC Src/Dst + Trailer)</span>
+                
+                <!-- Layer 3 -->
+                <div style="position:absolute; top:25px; left:20px; width:458px; height:145px; background-color:#E3F2FD; border:1px solid #64B5F6; padding:5px; box-sizing:border-box;">
+                    <span style="font-weight:bold; color:#0277BD;">IP PACKET</span> <span style="color:#0277BD; float:right;">(IP Src: 192.168.1.100, Dst: 93.184.216.34)</span>
+                    
+                    <!-- Layer 4 -->
+                    <div style="position:absolute; top:25px; left:20px; width:416px; height:95px; background-color:#BBDEFB; border:1px solid #2196F3; padding:5px; box-sizing:border-box;">
+                        <span style="font-weight:bold; color:#1565C0;">TCP SEGMENT</span> <span style="color:#1565C0; float:right;">(Port Src: 52431, Dst: 80)</span>
+                        
+                        <!-- Layer 7 -->
+                        <div style="position:absolute; top:25px; left:20px; width:374px; height:45px; background-color:#FFFFFF; border:1px solid #CCC; padding:8px; box-sizing:border-box; display:flex; align-items:center;">
+                            <span style="font-weight:bold; color:#333;">HTTP DATA:</span>&nbsp;<span style="color:#D81B60;">"GET /index.html HTTP/1.1"</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Labels -->
+            <div style="position:absolute; bottom:5px; right:10px; font-size:9px; color:#666; font-family:Arial;">*Each layer adds its own header to the payload</div>
+        </div>
+    </div>
+
+    <!-- 4. Real World API -->
+    <div style="position:absolute; top:395px; left:660px; width:560px; height:190px; border:1px solid #CCC; box-sizing:border-box; background-color:#FFFFFF;">
+        <div style="position:absolute; top:0; left:0; width:100%; height:30px; background-color:#004080; color:white; padding:8px 15px; font-weight:bold; font-size:12px; box-sizing:border-box;">
+            Real-World Example: ML API Request Flow
+        </div>
+
+        <!-- Diagram Nodes -->
+        <div style="position:absolute; top:50px; left:20px; width:520px; height:100px; font-size:10px;">
+            <!-- ML App -->
+            <div style="position:absolute; top:30px; left:0; width:90px; height:40px; background-color:#E1F5FE; border:1px solid #0277BD; border-radius:4px; text-align:center; padding-top:10px; font-weight:bold; box-sizing:border-box;">ML App</div>
+            
+            <!-- Arrow 1 -->
+            <div style="position:absolute; top:40px; left:95px; width:50px; height:2px; background-color:#666;"></div>
+            <div style="position:absolute; top:37px; left:140px; width:0; height:0; border-top:4px solid transparent; border-bottom:4px solid transparent; border-left:6px solid #666;"></div>
+            <div style="position:absolute; top:25px; left:95px; width:50px; text-align:center; font-size:9px; color:#0277BD;">HTTPS</div>
+
+            <!-- LB -->
+            <div style="position:absolute; top:30px; left:150px; width:90px; height:40px; background-color:#FFF3E0; border:1px solid #EF6C00; border-radius:4px; text-align:center; padding-top:5px; font-weight:bold; box-sizing:border-box;">Load<br>Balancer</div>
+
+            <!-- Arrow 2 -->
+            <div style="position:absolute; top:40px; left:245px; width:50px; height:2px; background-color:#666;"></div>
+            <div style="position:absolute; top:37px; left:290px; width:0; height:0; border-top:4px solid transparent; border-bottom:4px solid transparent; border-left:6px solid #666;"></div>
+            <div style="position:absolute; top:25px; left:245px; width:50px; text-align:center; font-size:9px; color:#0277BD;">TCP/80</div>
+
+            <!-- API -->
+            <div style="position:absolute; top:30px; left:300px; width:90px; height:40px; background-color:#E8F5E9; border:1px solid #2E7D32; border-radius:4px; text-align:center; padding-top:10px; font-weight:bold; box-sizing:border-box;">API Server</div>
+
+            <!-- Arrow 3 -->
+            <div style="position:absolute; top:40px; left:395px; width:50px; height:2px; background-color:#666;"></div>
+            <div style="position:absolute; top:37px; left:440px; width:0; height:0; border-top:4px solid transparent; border-bottom:4px solid transparent; border-left:6px solid #666;"></div>
+            <div style="position:absolute; top:25px; left:395px; width:50px; text-align:center; font-size:9px; color:#0277BD;">SQL</div>
+
+            <!-- DB -->
+            <div style="position:absolute; top:30px; left:450px; width:60px; height:40px; background-color:#F3E5F5; border:1px solid #7B1FA2; border-radius:4px; text-align:center; padding-top:10px; font-weight:bold; box-sizing:border-box;">DB</div>
+            
+            <!-- Layer annotations -->
+            <div style="position:absolute; top:80px; left:0; width:520px; text-align:center; color:#666; font-style:italic;">
+                Data is de-encapsulated up to L7 at LB for inspection, then re-encapsulated to API
+            </div>
+        </div>
+    </div>
+
+    <!-- Key Insight -->
+    <div style="position:absolute; top:600px; left:660px; width:560px; height:70px; background-color:#FFF8E1; border:2px solid #FFA000; padding:10px; box-sizing:border-box;">
+        <span style="color:#FFA000; font-weight:bold; font-size:12px;">KEY INSIGHT</span><br>
+        <span style="font-size:11px; color:#333;">Understanding protocol flows (Layer 4 vs Layer 7) is critical for performance tuning (e.g., minimizing TLS handshakes) and debugging connectivity issues across microservices.</span>
+    </div>
+
+    <!-- Footer -->
+    <div style="position:absolute; top:680px; left:60px; width:800px; height:20px; font-size:9px; color:#999;">
+        Source: Network Protocol Standards (IETF RFC 791, 793, 2616); Internal Architecture Docs
+    </div>
+    <div style="position:absolute; top:680px; left:1180px; width:40px; height:20px; font-size:10px; color:#999; text-align:right;">
+        6
+    </div>
+
+</div>

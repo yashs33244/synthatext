@@ -1,0 +1,210 @@
+<div id="slide" style="width:1280px; height:720px; position:relative; background-color:#FFFFFF; overflow:hidden; font-family:Arial, sans-serif;">
+
+    <!-- Title Section -->
+    <div style="position:absolute; top:30px; left:60px; width:1160px; height:40px; color:#004080; font-size:28px; font-weight:bold;">
+        Why Networking Matters for MLOps / The OSI Model (7 Layers)
+    </div>
+    <div style="position:absolute; top:70px; left:60px; width:1160px; height:20px; color:#666666; font-size:14px;">
+        Foundational networking concepts for robust model deployment, security, and debugging
+    </div>
+    <div style="position:absolute; top:100px; left:60px; width:1160px; height:1px; background-color:#E0E0E0;"></div>
+
+    <!-- LEFT COLUMN: MLOps Context (Width 360px) -->
+    
+    <!-- Section Header -->
+    <div style="position:absolute; top:120px; left:60px; width:360px; font-size:14px; font-weight:bold; color:#004080;">
+        Networking in MLOps Context
+    </div>
+
+    <!-- Why It Matters Text Box -->
+    <div style="position:absolute; top:150px; left:60px; width:360px; height:150px; background-color:#F5F5F5; padding:15px; box-sizing:border-box; border-left:4px solid #0066CC;">
+        <div style="font-size:11px; color:#333333; line-height:1.6;">
+            <strong>Why it matters:</strong>
+            <ul style="margin:5px 0 0 15px; padding:0;">
+                <li><strong>Model Deployment:</strong> APIs, load balancers, service meshes</li>
+                <li><strong>Data Pipelines:</strong> Secure transfer between services</li>
+                <li><strong>Infrastructure:</strong> VPCs, subnets, security groups</li>
+                <li><strong>Debugging:</strong> Identifying connectivity bottlenecks</li>
+                <li><strong>Security:</strong> Firewalls, encryption, access control</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- MLOps Architecture Diagram -->
+    <div style="position:absolute; top:320px; left:60px; width:360px; height:340px; border:1px solid #DDDDDD; background-color:#FFFFFF; border-radius:4px;">
+        <div style="position:absolute; top:10px; left:10px; font-size:11px; font-weight:bold; color:#666666;">MLOps Network Architecture</div>
+        
+        <!-- Nodes -->
+        <!-- Data Sources -->
+        <div style="position:absolute; top:40px; left:110px; width:140px; height:30px; background-color:#E3F2FD; border:1px solid #1565C0; text-align:center; line-height:28px; font-size:10px; border-radius:4px;">Data Sources</div>
+        
+        <!-- Arrow -->
+        <div style="position:absolute; top:70px; left:180px; width:1px; height:25px; background-color:#999;"></div>
+        <div style="position:absolute; top:75px; left:185px; font-size:9px; color:#666; background:white;">HTTP/S</div>
+        <div style="position:absolute; top:92px; left:177px; width:0; height:0; border-left:3px solid transparent; border-right:3px solid transparent; border-top:5px solid #999;"></div>
+
+        <!-- API Gateway -->
+        <div style="position:absolute; top:97px; left:110px; width:140px; height:30px; background-color:#FFF3E0; border:1px solid #E65100; text-align:center; line-height:28px; font-size:10px; border-radius:4px;">API Gateway</div>
+
+        <!-- Arrow -->
+        <div style="position:absolute; top:127px; left:180px; width:1px; height:25px; background-color:#999;"></div>
+        <div style="position:absolute; top:132px; left:185px; font-size:9px; color:#666; background:white;">TCP</div>
+        <div style="position:absolute; top:149px; left:177px; width:0; height:0; border-left:3px solid transparent; border-right:3px solid transparent; border-top:5px solid #999;"></div>
+
+        <!-- ML Services -->
+        <div style="position:absolute; top:154px; left:110px; width:140px; height:30px; background-color:#E8F5E9; border:1px solid #2E7D32; text-align:center; line-height:28px; font-size:10px; border-radius:4px;">ML Services</div>
+
+        <!-- Branch to Monitoring -->
+        <div style="position:absolute; top:169px; left:250px; width:40px; height:1px; background-color:#999;"></div>
+        <div style="position:absolute; top:155px; left:255px; font-size:9px; color:#666; background:white;">HTTP</div>
+        <div style="position:absolute; top:166px; left:287px; width:0; height:0; border-top:3px solid transparent; border-bottom:3px solid transparent; border-left:5px solid #999;"></div>
+        <div style="position:absolute; top:154px; left:290px; width:60px; height:30px; background-color:#FFF8E1; border:1px solid #F9A825; text-align:center; line-height:28px; font-size:10px; border-radius:4px;">Monitor</div>
+
+        <!-- Arrow to Model Server -->
+        <div style="position:absolute; top:184px; left:180px; width:1px; height:25px; background-color:#999;"></div>
+        <div style="position:absolute; top:189px; left:185px; font-size:9px; color:#666; background:white;">gRPC</div>
+        <div style="position:absolute; top:206px; left:177px; width:0; height:0; border-left:3px solid transparent; border-right:3px solid transparent; border-top:5px solid #999;"></div>
+
+        <!-- Model Server -->
+        <div style="position:absolute; top:211px; left:110px; width:140px; height:30px; background-color:#F3E5F5; border:1px solid #7B1FA2; text-align:center; line-height:28px; font-size:10px; border-radius:4px;">Model Server</div>
+
+        <!-- Arrow to DB -->
+        <div style="position:absolute; top:241px; left:180px; width:1px; height:25px; background-color:#999;"></div>
+        <div style="position:absolute; top:246px; left:185px; font-size:9px; color:#666; background:white;">TCP</div>
+        <div style="position:absolute; top:263px; left:177px; width:0; height:0; border-left:3px solid transparent; border-right:3px solid transparent; border-top:5px solid #999;"></div>
+
+        <!-- Database -->
+        <div style="position:absolute; top:268px; left:110px; width:140px; height:30px; background-color:#FCE4EC; border:1px solid #C2185B; text-align:center; line-height:28px; font-size:10px; border-radius:4px;">Database</div>
+        
+        <div style="position:absolute; top:310px; left:10px; font-size:9px; color:#999; font-style:italic;">Simplified request flow in production environment</div>
+    </div>
+
+
+    <!-- RIGHT COLUMN: OSI Model (Width 760px) -->
+    
+    <!-- Section Header -->
+    <div style="position:absolute; top:120px; left:460px; width:760px; font-size:14px; font-weight:bold; color:#004080;">
+        The OSI Model (Open Systems Interconnection)
+    </div>
+
+    <!-- Table Header Row -->
+    <div style="position:absolute; top:150px; left:460px; width:760px; height:30px; background-color:#004080; color:white; font-size:11px; font-weight:bold;">
+        <div style="position:absolute; top:8px; left:10px; width:180px;">Layer</div>
+        <div style="position:absolute; top:8px; left:200px; width:160px;">Function</div>
+        <div style="position:absolute; top:8px; left:370px; width:80px;">Data Unit</div>
+        <div style="position:absolute; top:8px; left:460px; width:130px;">Key Devices</div>
+        <div style="position:absolute; top:8px; left:600px; width:150px;">Protocols / Examples</div>
+    </div>
+
+    <!-- Layer 7 -->
+    <div style="position:absolute; top:180px; left:460px; width:760px; height:45px; background-color:#FFF; border-bottom:1px solid #EEE;">
+        <!-- Visual Block -->
+        <div style="position:absolute; top:2px; left:2px; width:188px; height:41px; background-color:#E3F2FD; border-left:4px solid #1565C0; padding:5px; box-sizing:border-box;">
+            <div style="font-weight:bold; font-size:12px; color:#0D47A1;">7. Application</div>
+            <div style="font-size:9px; color:#546E7A;">Software Interaction</div>
+        </div>
+        <!-- Table Data -->
+        <div style="position:absolute; top:12px; left:200px; width:160px; font-size:10px;">User interface & services</div>
+        <div style="position:absolute; top:12px; left:370px; width:80px; font-size:10px;">Data</div>
+        <div style="position:absolute; top:12px; left:460px; width:130px; font-size:10px;">Firewalls (App Level)</div>
+        <div style="position:absolute; top:12px; left:600px; width:150px; font-size:10px;">HTTP, FTP, SMTP, DNS</div>
+    </div>
+
+    <!-- Layer 6 -->
+    <div style="position:absolute; top:225px; left:460px; width:760px; height:45px; background-color:#F9F9F9; border-bottom:1px solid #EEE;">
+        <div style="position:absolute; top:2px; left:2px; width:188px; height:41px; background-color:#E3F2FD; border-left:4px solid #1976D2; padding:5px; box-sizing:border-box;">
+            <div style="font-weight:bold; font-size:12px; color:#0D47A1;">6. Presentation</div>
+            <div style="font-size:9px; color:#546E7A;">Translation / Encrypt</div>
+        </div>
+        <div style="position:absolute; top:12px; left:200px; width:160px; font-size:10px;">Data formatting & encryption</div>
+        <div style="position:absolute; top:12px; left:370px; width:80px; font-size:10px;">Data</div>
+        <div style="position:absolute; top:12px; left:460px; width:130px; font-size:10px;">-</div>
+        <div style="position:absolute; top:12px; left:600px; width:150px; font-size:10px;">SSL/TLS, JPEG, ASCII</div>
+    </div>
+
+    <!-- Layer 5 -->
+    <div style="position:absolute; top:270px; left:460px; width:760px; height:45px; background-color:#FFF; border-bottom:1px solid #EEE;">
+        <div style="position:absolute; top:2px; left:2px; width:188px; height:41px; background-color:#BBDEFB; border-left:4px solid #1E88E5; padding:5px; box-sizing:border-box;">
+            <div style="font-weight:bold; font-size:12px; color:#0D47A1;">5. Session</div>
+            <div style="font-size:9px; color:#546E7A;">Sync & Ports</div>
+        </div>
+        <div style="position:absolute; top:12px; left:200px; width:160px; font-size:10px;">Connection management</div>
+        <div style="position:absolute; top:12px; left:370px; width:80px; font-size:10px;">Data</div>
+        <div style="position:absolute; top:12px; left:460px; width:130px; font-size:10px;">-</div>
+        <div style="position:absolute; top:12px; left:600px; width:150px; font-size:10px;">NetBIOS, RPC</div>
+    </div>
+
+    <!-- Layer 4 -->
+    <div style="position:absolute; top:315px; left:460px; width:760px; height:45px; background-color:#F9F9F9; border-bottom:1px solid #EEE;">
+        <div style="position:absolute; top:2px; left:2px; width:188px; height:41px; background-color:#90CAF9; border-left:4px solid #2196F3; padding:5px; box-sizing:border-box;">
+            <div style="font-weight:bold; font-size:12px; color:#0D47A1;">4. Transport</div>
+            <div style="font-size:9px; color:#546E7A;">End-to-End Conn.</div>
+        </div>
+        <div style="position:absolute; top:12px; left:200px; width:160px; font-size:10px;">End-to-end delivery</div>
+        <div style="position:absolute; top:12px; left:370px; width:80px; font-size:10px;">Segment</div>
+        <div style="position:absolute; top:12px; left:460px; width:130px; font-size:10px;">Load Balancers</div>
+        <div style="position:absolute; top:12px; left:600px; width:150px; font-size:10px;">TCP, UDP</div>
+    </div>
+
+    <!-- Layer 3 -->
+    <div style="position:absolute; top:360px; left:460px; width:760px; height:45px; background-color:#FFF; border-bottom:1px solid #EEE;">
+        <div style="position:absolute; top:2px; left:2px; width:188px; height:41px; background-color:#64B5F6; border-left:4px solid #42A5F5; padding:5px; box-sizing:border-box;">
+            <div style="font-weight:bold; font-size:12px; color:#000;">3. Network</div>
+            <div style="font-size:9px; color:#333;">Packets & Routing</div>
+        </div>
+        <div style="position:absolute; top:12px; left:200px; width:160px; font-size:10px;">Routing & addressing</div>
+        <div style="position:absolute; top:12px; left:370px; width:80px; font-size:10px;">Packet</div>
+        <div style="position:absolute; top:12px; left:460px; width:130px; font-size:10px;">Routers</div>
+        <div style="position:absolute; top:12px; left:600px; width:150px; font-size:10px;">IP, ICMP, ARP</div>
+    </div>
+
+    <!-- Layer 2 -->
+    <div style="position:absolute; top:405px; left:460px; width:760px; height:45px; background-color:#F9F9F9; border-bottom:1px solid #EEE;">
+        <div style="position:absolute; top:2px; left:2px; width:188px; height:41px; background-color:#42A5F5; border-left:4px solid #64B5F6; padding:5px; box-sizing:border-box;">
+            <div style="font-weight:bold; font-size:12px; color:#000;">2. Data Link</div>
+            <div style="font-size:9px; color:#333;">Frames & MAC</div>
+        </div>
+        <div style="position:absolute; top:12px; left:200px; width:160px; font-size:10px;">Node-to-node delivery</div>
+        <div style="position:absolute; top:12px; left:370px; width:80px; font-size:10px;">Frame</div>
+        <div style="position:absolute; top:12px; left:460px; width:130px; font-size:10px;">Switches, Bridges</div>
+        <div style="position:absolute; top:12px; left:600px; width:150px; font-size:10px;">Ethernet, PPP, MAC</div>
+    </div>
+
+    <!-- Layer 1 -->
+    <div style="position:absolute; top:450px; left:460px; width:760px; height:45px; background-color:#FFF; border-bottom:1px solid #EEE;">
+        <div style="position:absolute; top:2px; left:2px; width:188px; height:41px; background-color:#2196F3; border-left:4px solid #90CAF9; padding:5px; box-sizing:border-box;">
+            <div style="font-weight:bold; font-size:12px; color:#FFF;">1. Physical</div>
+            <div style="font-size:9px; color:#EEE;">Cables & Signals</div>
+        </div>
+        <div style="position:absolute; top:12px; left:200px; width:160px; font-size:10px;">Physical transmission</div>
+        <div style="position:absolute; top:12px; left:370px; width:80px; font-size:10px;">Bits</div>
+        <div style="position:absolute; top:12px; left:460px; width:130px; font-size:10px;">Hubs, NICs</div>
+        <div style="position:absolute; top:12px; left:600px; width:150px; font-size:10px;">USB, DSL, Bluetooth</div>
+    </div>
+
+    <!-- Mnemonics Box -->
+    <div style="position:absolute; top:515px; left:460px; width:340px; height:80px; background-color:#F5F5F5; padding:10px; box-sizing:border-box; border-radius:4px;">
+        <div style="font-size:11px; font-weight:bold; color:#004080; margin-bottom:5px;">🧠 Memory Tricks</div>
+        <div style="font-size:10px; color:#333;">
+            <span style="color:#666;">↓ 7-1:</span> "<strong>A</strong>ll <strong>P</strong>eople <strong>S</strong>eem <strong>T</strong>o <strong>N</strong>eed <strong>D</strong>ata <strong>P</strong>rocessing"<br/>
+            <span style="color:#666;">↑ 1-7:</span> "<strong>P</strong>lease <strong>D</strong>o <strong>N</strong>ot <strong>T</strong>hrow <strong>S</strong>ausage <strong>P</strong>izza <strong>A</strong>way"
+        </div>
+    </div>
+
+    <!-- Insight Box -->
+    <div style="position:absolute; top:515px; left:820px; width:400px; height:80px; background-color:#FFF8E1; border:2px solid #FFA000; padding:12px; box-sizing:border-box;">
+        <div style="font-size:12px; font-weight:bold; color:#FFA000; margin-bottom:4px;">KEY INSIGHT</div>
+        <div style="font-size:11px; color:#333; line-height:1.4;">
+            For MLOps, <strong>Layer 4 (Transport)</strong> and <strong>Layer 7 (Application)</strong> are critical. Misconfiguration here often causes the most common production issues (e.g., API timeouts, port conflicts, or serialization errors).
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div style="position:absolute; top:680px; left:60px; font-size:9px; color:#999999;">
+        Source: Open Systems Interconnection (OSI) model standards; Cloud Native Computing Foundation (CNCF) MLOps best practices
+    </div>
+    <div style="position:absolute; top:680px; left:1180px; font-size:10px; color:#999999;">
+        3
+    </div>
+
+</div>

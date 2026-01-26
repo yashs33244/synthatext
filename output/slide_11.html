@@ -1,0 +1,74 @@
+<div id="slide" style="width:1280px; height:720px; position:relative; background-color:#FFFFFF; overflow:hidden;">
+
+    <!-- Main Title -->
+    <div style="position:absolute; top:30px; left:60px; width:1160px; height:40px; font-family:Arial, sans-serif; font-size:32px; font-weight:bold; color:#004080; line-height:1.2;">
+        Check interfaces / Check gateway
+    </div>
+
+    <!-- Subtitle -->
+    <div style="position:absolute; top:80px; left:60px; width:1160px; height:20px; font-family:Arial, sans-serif; font-size:14px; color:#666666; line-height:1.4;">
+        Validation of network layer configuration and routing parameters to ensure connectivity
+    </div>
+
+    <!-- Divider Line -->
+    <div style="position:absolute; top:110px; left:60px; width:1160px; height:1px; background-color:#E0E0E0;"></div>
+
+    <!-- Section 1: Interfaces -->
+    <!-- Header -->
+    <div style="position:absolute; top:135px; left:60px; width:1160px; height:25px; font-family:Arial, sans-serif; font-size:18px; font-weight:bold; color:#004080;">
+        1. Network Interface Inspection
+    </div>
+
+    <!-- Description -->
+    <div style="position:absolute; top:165px; left:60px; width:1160px; height:20px; font-family:Arial, sans-serif; font-size:12px; color:#333333; line-height:1.5;">
+        Retrieves active network interfaces and their assigned IP addresses. The command filters output to show only interface identifiers and inet addresses.
+    </div>
+
+    <!-- Code Block 1 -->
+    <div style="position:absolute; top:195px; left:60px; width:1160px; height:130px; background-color:#F5F5F5; border:1px solid #CCCCCC; padding:15px; box-sizing:border-box; font-family:'Courier New', monospace; font-size:12px; color:#333333; line-height:1.6; border-left:4px solid #0066CC;">
+        <span style="color:#666666;"># Display header and filter IP address information</span><br/>
+        <span style="color:#000000; font-weight:bold;">echo</span> <span style="color:#008000;">""</span><br/>
+        <span style="color:#000000; font-weight:bold;">echo</span> <span style="color:#008000;">"📡 Network Interfaces:"</span><br/>
+        <span style="color:#000000; font-weight:bold;">ip addr show</span> | <span style="color:#000000; font-weight:bold;">grep</span> -E <span style="color:#008000;">"^[0-9]+:|inet "</span>
+    </div>
+
+    <!-- Section 2: Gateway -->
+    <!-- Header -->
+    <div style="position:absolute; top:355px; left:60px; width:1160px; height:25px; font-family:Arial, sans-serif; font-size:18px; font-weight:bold; color:#004080;">
+        2. Default Gateway Verification
+    </div>
+
+    <!-- Description -->
+    <div style="position:absolute; top:385px; left:60px; width:1160px; height:20px; font-family:Arial, sans-serif; font-size:12px; color:#333333; line-height:1.5;">
+        Identifies the default route in the kernel routing table. This confirms the host knows where to send traffic destined for external networks.
+    </div>
+
+    <!-- Code Block 2 -->
+    <div style="position:absolute; top:415px; left:60px; width:1160px; height:120px; background-color:#F5F5F5; border:1px solid #CCCCCC; padding:15px; box-sizing:border-box; font-family:'Courier New', monospace; font-size:12px; color:#333333; line-height:1.6; border-left:4px solid #0066CC;">
+        <span style="color:#666666;"># Check for default route entry</span><br/>
+        <span style="color:#000000; font-weight:bold;">echo</span> <span style="color:#008000;">""</span><br/>
+        <span style="color:#000000; font-weight:bold;">echo</span> <span style="color:#008000;">"🚪 Default Gateway:"</span><br/>
+        <span style="color:#000000; font-weight:bold;">ip route</span> | <span style="color:#000000; font-weight:bold;">grep</span> default
+    </div>
+
+    <!-- Key Insight Box -->
+    <div style="position:absolute; top:565px; left:60px; width:1160px; height:90px; background-color:#FFF8E1; border:1px solid #FFA000; padding:20px; box-sizing:border-box;">
+        <div style="position:absolute; top:15px; left:20px; font-family:Arial, sans-serif; font-size:12px; font-weight:bold; color:#FFA000; letter-spacing:1px;">
+            KEY TAKEAWAY
+        </div>
+        <div style="position:absolute; top:40px; left:20px; width:1120px; font-family:Arial, sans-serif; font-size:14px; color:#333333; line-height:1.4;">
+            <span style="font-weight:bold;">Foundation of Connectivity:</span> Verifying a valid IP assignment and an active default gateway is the primary step in network diagnostics. Without these, the host cannot communicate with the control plane or external APIs, rendering higher-level checks irrelevant.
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div style="position:absolute; top:680px; left:60px; width:600px; height:20px; font-family:Arial, sans-serif; font-size:9px; color:#999999;">
+        Source: Network Configuration & Troubleshooting Guide; Linux IP Route Documentation
+    </div>
+
+    <!-- Page Number -->
+    <div style="position:absolute; top:680px; left:1180px; width:40px; height:20px; font-family:Arial, sans-serif; font-size:10px; color:#999999; text-align:right;">
+        11
+    </div>
+
+</div>

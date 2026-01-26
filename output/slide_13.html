@@ -1,0 +1,125 @@
+<div id="slide" style="width:1280px; height:720px; position:relative; background-color:#FFFFFF; overflow:hidden; font-family:Arial, sans-serif;">
+
+    <!-- Title Section -->
+    <div style="position:absolute; top:30px; left:60px; width:1160px; height:40px; color:#004080; font-size:32px; font-weight:bold;">
+        Test external connectivity
+    </div>
+    <div style="position:absolute; top:75px; left:60px; width:1160px; height:20px; color:#666666; font-size:14px;">
+        Validation logic for ensuring outbound network reachability via command line interface
+    </div>
+    <div style="position:absolute; top:105px; left:60px; width:1160px; height:1px; background-color:#CCCCCC;"></div>
+
+    <!-- Left Column: Context & Strategy -->
+    <div style="position:absolute; top:130px; left:60px; width:560px; height:30px; color:#004080; font-size:16px; font-weight:bold;">
+        Validation Strategy
+    </div>
+
+    <!-- Context Box -->
+    <div style="position:absolute; top:165px; left:60px; width:560px; height:160px; background-color:#F5F5F5; padding:20px; box-sizing:border-box;">
+        <div style="color:#333333; font-size:14px; font-weight:bold; margin-bottom:10px;">Objective</div>
+        <div style="color:#333333; font-size:12px; line-height:1.6;">
+            • <strong>Verify Outbound Routing:</strong> Ensures the local environment can route traffic through the network gateway to the public internet.<br/>
+            • <strong>Target Selection:</strong> Uses Google Public DNS (<span style="font-family:'Courier New'">8.8.8.8</span>) as a highly available, standard endpoint for connectivity testing.<br/>
+            • <strong>Minimal Footprint:</strong> Sends a single ICMP packet to minimize network traffic and execution time during automated checks.
+        </div>
+    </div>
+
+    <!-- Logic Flow Diagram (simulated with styled divs) -->
+    <div style="position:absolute; top:350px; left:60px; width:560px; height:30px; color:#004080; font-size:16px; font-weight:bold;">
+        Execution Flow
+    </div>
+    
+    <div style="position:absolute; top:385px; left:60px; width:160px; height:80px; background-color:#E8F4FD; border:1px solid #66B3FF; display:flex; align-items:center; justify-content:center; text-align:center; box-sizing:border-box; padding:10px;">
+        <span style="font-size:12px; font-weight:bold; color:#004080;">Execute Ping<br/>(8.8.8.8)</span>
+    </div>
+    
+    <!-- Arrow 1 -->
+    <div style="position:absolute; top:420px; left:220px; width:40px; height:2px; background-color:#666666;"></div>
+    <div style="position:absolute; top:416px; left:255px; width:0; height:0; border-top:5px solid transparent; border-bottom:5px solid transparent; border-left:5px solid #666666;"></div>
+
+    <div style="position:absolute; top:385px; left:260px; width:160px; height:80px; background-color:#FFFFFF; border:1px solid #CCCCCC; box-sizing:border-box; padding:10px;">
+        <div style="font-size:11px; color:#666666; text-align:center;">Result Code Check</div>
+        <div style="font-size:10px; color:#333333; margin-top:5px;">
+            Exit 0 = Success<br/>
+            Exit 1+ = Failure
+        </div>
+    </div>
+
+    <!-- Arrow 2 -->
+    <div style="position:absolute; top:420px; left:420px; width:40px; height:2px; background-color:#666666;"></div>
+    <div style="position:absolute; top:416px; left:455px; width:0; height:0; border-top:5px solid transparent; border-bottom:5px solid transparent; border-left:5px solid #666666;"></div>
+
+    <div style="position:absolute; top:385px; left:460px; width:160px; height:80px; background-color:#FFF8E1; border:1px solid #FFA000; box-sizing:border-box; padding:10px;">
+        <div style="font-size:12px; font-weight:bold; color:#F57C00; text-align:center;">Print Status</div>
+        <div style="font-size:18px; text-align:center; margin-top:5px;">✅ / ❌</div>
+    </div>
+
+
+    <!-- Right Column: Technical Implementation -->
+    <div style="position:absolute; top:130px; left:660px; width:560px; height:30px; color:#004080; font-size:16px; font-weight:bold;">
+        Script Implementation
+    </div>
+
+    <!-- Code Block -->
+    <div style="position:absolute; top:165px; left:660px; width:560px; height:120px; background-color:#333333; border-radius:4px; padding:15px; box-sizing:border-box; border-left:4px solid #0066CC;">
+        <div style="font-family:'Courier New', monospace; font-size:12px; color:#E0E0E0; line-height:1.8;">
+            <span style="color:#888888;"># Print header and execute check</span><br/>
+            echo ""<br/>
+            echo "🌐 External Connectivity (8.8.8.8):"<br/>
+            ping -c 1 8.8.8.8 > /dev/null && echo "✅ OK" || echo "❌ Failed"
+        </div>
+    </div>
+
+    <!-- Syntax Breakdown Table -->
+    <div style="position:absolute; top:310px; left:660px; width:560px; height:30px; color:#004080; font-size:14px; font-weight:bold;">
+        Syntax Breakdown
+    </div>
+
+    <div style="position:absolute; top:340px; left:660px; width:560px; height:150px;">
+        <div style="position:absolute; top:0; left:0; width:560px; height:25px; background-color:#004080;">
+            <div style="position:absolute; top:5px; left:10px; font-size:11px; font-weight:bold; color:#FFFFFF;">Component</div>
+            <div style="position:absolute; top:5px; left:180px; font-size:11px; font-weight:bold; color:#FFFFFF;">Function</div>
+        </div>
+
+        <!-- Row 1 -->
+        <div style="position:absolute; top:25px; left:0; width:560px; height:30px; background-color:#FFFFFF; border-bottom:1px solid #E0E0E0;">
+            <div style="position:absolute; top:8px; left:10px; font-family:'Courier New'; font-size:11px; color:#333333;">ping -c 1</div>
+            <div style="position:absolute; top:8px; left:180px; font-size:11px; color:#333333;">Send exactly one packet (count=1) to define success quickly</div>
+        </div>
+
+        <!-- Row 2 -->
+        <div style="position:absolute; top:55px; left:0; width:560px; height:30px; background-color:#F9F9F9; border-bottom:1px solid #E0E0E0;">
+            <div style="position:absolute; top:8px; left:10px; font-family:'Courier New'; font-size:11px; color:#333333;">> /dev/null</div>
+            <div style="position:absolute; top:8px; left:180px; font-size:11px; color:#333333;">Suppress standard technical output to keep logs clean</div>
+        </div>
+
+        <!-- Row 3 -->
+        <div style="position:absolute; top:85px; left:0; width:560px; height:30px; background-color:#FFFFFF; border-bottom:1px solid #E0E0E0;">
+            <div style="position:absolute; top:8px; left:10px; font-family:'Courier New'; font-size:11px; color:#333333;">&& echo "..."</div>
+            <div style="position:absolute; top:8px; left:180px; font-size:11px; color:#333333;">Conditional AND: Executes only if ping returns exit code 0 (Success)</div>
+        </div>
+
+        <!-- Row 4 -->
+        <div style="position:absolute; top:115px; left:0; width:560px; height:30px; background-color:#F9F9F9; border-bottom:1px solid #E0E0E0;">
+            <div style="position:absolute; top:8px; left:10px; font-family:'Courier New'; font-size:11px; color:#333333;">|| echo "..."</div>
+            <div style="position:absolute; top:8px; left:180px; font-size:11px; color:#333333;">Conditional OR: Executes only if ping returns non-zero (Failure)</div>
+        </div>
+    </div>
+
+    <!-- Insight Box -->
+    <div style="position:absolute; top:540px; left:60px; width:1160px; height:100px; background-color:#FFF8E1; border:2px solid #FFA000; box-sizing:border-box; padding:15px;">
+        <div style="font-size:14px; font-weight:bold; color:#F57C00; margin-bottom:5px;">KEY INSIGHT</div>
+        <div style="font-size:12px; color:#333333; line-height:1.5;">
+            This binary check provides an immediate "Go/No-Go" status for the network layer. A failure here ("❌ Failed") is a blocking issue that indicates the host cannot reach the internet, requiring immediate investigation into firewall rules, NAT gateway status, or route table configuration before proceeding with application deployment.
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <div style="position:absolute; top:690px; left:60px; width:800px; height:20px; font-size:9px; color:#999999;">
+        Source: System Administration Best Practices; GNU Coreutils Documentation
+    </div>
+    <div style="position:absolute; top:690px; left:1180px; width:40px; height:20px; font-size:10px; color:#999999; text-align:right;">
+        13
+    </div>
+
+</div>

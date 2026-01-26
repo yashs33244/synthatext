@@ -1,0 +1,76 @@
+<div id="slide" style="width:1280px; height:720px; position:relative; background-color:#FFFFFF; overflow:hidden; font-family:Arial, sans-serif;">
+
+    <!-- Title Section -->
+    <div style="position:absolute; top:30px; left:60px; width:1160px; height:40px; color:#004080; font-size:32px; font-weight:bold;">
+        Network Diagnostic Verification: DNS & Ports
+    </div>
+    <div style="position:absolute; top:75px; left:60px; width:1160px; height:20px; color:#666666; font-size:14px;">
+        Automated validation of external name resolution and internal service listener status
+    </div>
+
+    <!-- Left Column: DNS Check -->
+    <div style="position:absolute; top:120px; left:60px; width:560px; height:200px; background-color:#F5F5F5; border-left:4px solid #004080; box-sizing:border-box; padding:20px;">
+        <div style="font-size:16px; font-weight:bold; color:#004080; margin-bottom:15px;">01. DNS Resolution Test</div>
+        <div style="font-size:12px; color:#333333; margin-bottom:10px;">
+            Verifies the system's ability to resolve external domain names using the <code>host</code> command. This check confirms upstream DNS connectivity.
+        </div>
+        <div style="background-color:#FFFFFF; border:1px solid #CCCCCC; padding:10px; font-family:monospace; font-size:11px; color:#333333; margin-bottom:10px;">
+            host google.com > /dev/null 2>&1
+        </div>
+        <div style="font-size:12px; font-weight:bold; color:#0066CC;">
+            Target: google.com (Connectivity Benchmark)
+        </div>
+    </div>
+
+    <!-- Right Column: Port Check -->
+    <div style="position:absolute; top:120px; left:660px; width:560px; height:200px; background-color:#F5F5F5; border-left:4px solid #004080; box-sizing:border-box; padding:20px;">
+        <div style="font-size:16px; font-weight:bold; color:#004080; margin-bottom:15px;">02. Listening Port Analysis</div>
+        <div style="font-size:12px; color:#333333; margin-bottom:10px;">
+            Audits active network sockets using <code>ss</code> (Socket Statistics). This identifies which services are listening for incoming connections.
+        </div>
+        <div style="background-color:#FFFFFF; border:1px solid #CCCCCC; padding:10px; font-family:monospace; font-size:11px; color:#333333; margin-bottom:10px;">
+            ss -tuln | head -10
+        </div>
+        <div style="font-size:12px; font-weight:bold; color:#0066CC;">
+            Flags: TCP (-t), UDP (-u), Listening (-l), Numeric (-n)
+        </div>
+    </div>
+
+    <!-- Execution Output Simulation -->
+    <div style="position:absolute; top:340px; left:60px; width:1160px; height:220px; background-color:#E8F4FD; border:1px solid #B0C4DE; box-sizing:border-box; padding:20px;">
+        <div style="font-size:14px; font-weight:bold; color:#004080; margin-bottom:10px;">Execution Log Output</div>
+        <div style="font-family:'Courier New', monospace; font-size:12px; color:#333333; line-height:1.5;">
+            <span style="color:#666;"># Executing diagnostics...</span><br/>
+            <br/>
+            📖 DNS Resolution (google.com):<br/>
+            <span style="color:#008000; font-weight:bold;">✅ OK</span><br/>
+            <br/>
+            🚀 Listening Ports:<br/>
+            Netid&nbsp;&nbsp;State&nbsp;&nbsp;&nbsp;Recv-Q&nbsp;&nbsp;Send-Q&nbsp;&nbsp;&nbsp;Local Address:Port&nbsp;&nbsp;&nbsp;Peer Address:Port<br/>
+            tcp&nbsp;&nbsp;&nbsp;&nbsp;LISTEN&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;128&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0.0.0.0:22&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0.0.0.0:*<br/>
+            <span style="color:#666;">... [truncating output for display]</span><br/>
+            <br/>
+            ======================<br/>
+            Diagnostics complete!
+        </div>
+    </div>
+
+    <!-- Key Insight Box -->
+    <div style="position:absolute; top:580px; left:60px; width:1160px; height:80px; background-color:#FFF8E1; border:2px solid #FFA000; box-sizing:border-box; padding:15px; display:flex; align-items:center;">
+        <div>
+            <div style="font-size:14px; font-weight:bold; color:#FFA000; margin-bottom:5px;">DIAGNOSTIC ASSESSMENT</div>
+            <div style="font-size:12px; color:#333333;">
+                Successful execution of these checks confirms the server has valid external reachability (DNS) and provides visibility into the active attack surface (Open Ports), prerequisites for a secure and functional deployment.
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <div style="position:absolute; top:690px; left:60px; font-size:9px; color:#999999;">
+        Source: System Administration / DevOps Standard Operating Procedures
+    </div>
+    <div style="position:absolute; top:690px; left:1180px; font-size:10px; color:#999999; text-align:right;">
+        14
+    </div>
+
+</div>

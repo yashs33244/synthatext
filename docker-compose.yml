@@ -1,0 +1,184 @@
+version: '3.8'
+
+services:
+  # ============================================
+  # PostgreSQL Database
+  # ============================================
+  postgres:
+    image: postgres:15-alpine
+    container_name: synthatext-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "${POSTGRES_PORT}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - synthatext-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ============================================
+  # Redis Cache
+  # ============================================
+  redis:
+    image: redis:7-alpine
+    container_name: synthatext-redis
+    restart: unless-stopped
+    ports:
+      - "${REDIS_PORT}:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - synthatext-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+
+  # ============================================
+  # Backend (FastAPI)
+  # ============================================
+  backend:
+    image: yashs3324/synthatext-backend:latest
+    container_name: synthatext-backend
+    restart: unless-stopped
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "${BACKEND_PORT}:8000"
+    environment:
+      # Environment selector
+      ENVIRONMENT: ${ENVIRONMENT}
+      # Database & Redis (Secrets)
+      DATABASE_URL: ${DATABASE_URL}
+      REDIS_URL: ${REDIS_URL}
+      # AWS (Secrets)
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+      AWS_REGION: ${AWS_REGION}
+      S3_BUCKET_NAME: ${S3_BUCKET_NAME}
+      # API Keys (Secrets)
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY}
+      GOOGLE_API_KEY: ${GOOGLE_API_KEY}
+      # JWT (Secrets)
+      JWT_SECRET: ${JWT_SECRET}
+      # Google OAuth (Secrets)
+      GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID}
+      GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET}
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - synthatext-network
+    volumes:
+      - ./backend/storage:/app/storage
+
+  # ============================================
+  # Celery Worker (Background Jobs)
+  # ============================================
+  celery-worker:
+    image: yashs3324/synthatext-backend:latest
+    container_name: synthatext-celery-worker
+    restart: unless-stopped
+    command: celery -A app.celery_app worker --loglevel=info
+    environment:
+      # Environment selector
+      ENVIRONMENT: ${ENVIRONMENT}
+      # Database & Redis (Secrets)
+      DATABASE_URL: ${DATABASE_URL}
+      REDIS_URL: ${REDIS_URL}
+      # AWS (Secrets)
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+      AWS_REGION: ${AWS_REGION}
+      S3_BUCKET_NAME: ${S3_BUCKET_NAME}
+      # API Keys (Secrets)
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY}
+      GOOGLE_API_KEY: ${GOOGLE_API_KEY}
+      # JWT (Secrets)
+      JWT_SECRET: ${JWT_SECRET}
+      # Google OAuth (Secrets)
+      GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID}
+      GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET}
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      backend:
+        condition: service_started
+    networks:
+      - synthatext-network
+    volumes:
+      - ./backend/storage:/app/storage
+
+  # ============================================
+  # Main App - Frontend (Port 3001)
+  # ============================================
+  frontend-app:
+    image: yashs3324/synthatext-app:latest
+    container_name: synthatext-frontend-app
+    restart: unless-stopped
+    build:
+      context: ./frontend/web/frontend-shared
+      dockerfile: Dockerfile
+      args:
+        NODE_ENV: ${NODE_ENV}
+    ports:
+      - "${FRONTEND_APP_PORT}:3001"
+    environment:
+      # Only pass NODE_ENV - URLs come from config
+      NODE_ENV: ${NODE_ENV}
+    depends_on:
+      - backend
+    networks:
+      - synthatext-network
+
+  # ============================================
+  # Landing Page (Port 3000)
+  # ============================================
+  landing:
+    image: yashs3324/synthatext-landing:latest
+    container_name: synthatext-landing
+    restart: unless-stopped
+    build:
+      context: ./frontend/web/synthatext-fe-landing
+      dockerfile: Dockerfile
+      args:
+        NODE_ENV: ${NODE_ENV}
+    ports:
+      - "${LANDING_PORT}:3000"
+    environment:
+      # Only pass NODE_ENV - URLs come from config
+      NODE_ENV: ${NODE_ENV}
+    depends_on:
+      - backend
+    networks:
+      - synthatext-network
+
+# ============================================
+# Networks
+# ============================================
+networks:
+  synthatext-network:
+    driver: bridge
+
+# ============================================
+# Volumes
+# ============================================
+volumes:
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local

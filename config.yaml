@@ -1,0 +1,162 @@
+# ================================================================
+# General Purpose PPT Generator - Configuration
+# ================================================================
+# Place your source content (PDF or TXT) in the 'input/' folder
+# and update the settings below.
+# ================================================================
+
+# Input Configuration
+# -------------------
+input:
+  # Source file name (place in 'input/' folder)
+  # Supported formats: .pdf, .txt, .md
+  file_name: "input.md"
+  
+  # Content type: "pdf" or "text"
+  content_type: "markdown"
+
+# Output Configuration
+# --------------------
+output:
+  # Output format: "pdf" or "pptx"
+  format: "pdf"
+  
+  # Output file name (date will be appended automatically)
+  file_name: "Generated_Presentation"
+  
+  # Output folder (relative to this config file)
+  folder: "output/"
+
+# Slide Configuration
+# -------------------
+slides:
+  # Slide dimensions (in pixels for HTML rendering)
+  width: 1280
+  height: 720
+  
+  # IMPORTANT: Number of content slides to generate (excluding title/ending)
+  # All source content will be distributed across this many slides
+  # Set to -1 to create one slide per source page
+  number_of_slides: 15
+  
+  # Number of content pages to process (from source)
+  # Set to -1 to process all pages
+  pages_to_process: -1
+
+# Title Slide Configuration
+# -------------------------
+title_slide:
+  enabled: true
+  
+  # Main title text
+  title: "Presentation Title"
+  
+  # Subtitle text
+  subtitle: "Subtitle or Company Name"
+  
+  # Date format: "auto" for current date, or specify like "January 2026"
+  date: "auto"
+  
+  # Author/presenter name
+  author: ""
+  
+  # Background color (hex)
+  background_color: "#004080"
+  
+  # Text color (hex)
+  text_color: "#FFFFFF"
+  
+  # Logo path (optional, place in 'assets/' folder)
+  logo: ""
+
+# Ending Slide Configuration
+# --------------------------
+ending_slide:
+  enabled: true
+  
+  # Ending slide type: "thank_you", "contact", "questions", "custom"
+  type: "thank_you"
+  
+  # Main text (used for all types)
+  main_text: "Thank You"
+  
+  # Secondary text
+  secondary_text: ""
+  
+  # Contact information (for "contact" type)
+  contact:
+    email: ""
+    phone: ""
+    website: ""
+    address: ""
+  
+  # Background color (hex)
+  background_color: "#004080"
+  
+  # Text color (hex)
+  text_color: "#FFFFFF"
+
+# Content Slide Styling
+# ---------------------
+content_styling:
+  # McKinsey-style design
+  style: "mckinsey"
+  
+  # Primary color (headers, accents)
+  primary_color: "#004080"
+  
+  # Secondary color (highlights)
+  secondary_color: "#0066CC"
+  
+  # Accent color (callouts, important items)
+  accent_color: "#FFA000"
+  
+  # Background color
+  background_color: "#FFFFFF"
+  
+  # Text colors
+  title_color: "#004080"
+  body_color: "#333333"
+  
+  # Font sizes (in px)
+  title_font_size: 28
+  subtitle_font_size: 14
+  body_font_size: 11
+  
+  # Include "So What?" insight boxes
+  include_insights: true
+  
+  # Add page numbers
+  include_page_numbers: true
+  
+  # Add source citations
+  include_sources: true
+
+# LLM Configuration
+# -----------------
+llm:
+  # Provider: "claude" or "gemini"
+  provider: "gemini"
+  
+  claude:
+    model: "claude-sonnet-4-5-20250929"
+    max_tokens: 10000
+  
+  gemini:
+    model: "gemini-3-pro-preview"
+    max_tokens: 10000
+
+# Processing Options
+# ------------------
+processing:
+  # Verbose output during processing
+  verbose: true
+  
+  # Save intermediate HTML files
+  save_html_files: true
+  
+  # Clean up HTML files after PDF generation
+  cleanup_html: false
+  
+  # Retry failed slides
+  max_retries: 2

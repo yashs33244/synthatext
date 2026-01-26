@@ -1,0 +1,216 @@
+<div id="slide" style="width:1280px; height:720px; position:relative; background-color:#FFFFFF; overflow:hidden; font-family:Arial, sans-serif;">
+
+    <!-- Title Section -->
+    <div style="position:absolute; top:30px; left:60px; width:1160px; height:40px; font-size:28px; font-weight:bold; color:#004080; border-bottom: 2px solid #004080;">
+        The TCP/IP Model (5 Layers) vs. OSI Model
+    </div>
+    <div style="position:absolute; top:75px; left:60px; width:1160px; height:20px; font-size:14px; color:#666666;">
+        Comparison of the practical Internet protocol suite against the theoretical OSI reference model
+    </div>
+
+    <!-- LEFT COLUMN: TCP/IP STACK & DETAILS -->
+    <div style="position:absolute; top:110px; left:60px; width:560px; height:20px; font-size:16px; font-weight:bold; color:#004080;">
+        TCP/IP 5-Layer Implementation
+    </div>
+
+    <!-- Intro Text -->
+    <div style="position:absolute; top:135px; left:60px; width:560px; height:30px; font-size:11px; color:#333333; line-height:1.4;">
+        The TCP/IP model is the practical foundation of the modern Internet. While originally defined with 4 layers, the 5-layer model is commonly taught to distinguish physical hardware from data link protocols.
+    </div>
+
+    <!-- Stack Diagram -->
+    <div style="position:absolute; top:175px; left:60px; width:560px; height:210px;">
+        <!-- Layer 5 -->
+        <div style="position:absolute; top:0px; left:0px; width:560px; height:38px; background-color:#ffebee; border:1px solid #c62828; border-radius:4px; padding:8px 12px; box-sizing:border-box; display:flex; align-items:center;">
+            <div style="font-weight:bold; color:#c62828; width:120px; font-size:12px;">Layer 5: Application</div>
+            <div style="font-size:11px; color:#333;">🖥️ HTTP, FTP, SMTP, DNS, SSH</div>
+        </div>
+        <!-- Arrow -->
+        <div style="position:absolute; top:38px; left:280px; width:2px; height:6px; background-color:#999;"></div>
+
+        <!-- Layer 4 -->
+        <div style="position:absolute; top:44px; left:0px; width:560px; height:38px; background-color:#e8f5e9; border:1px solid #2e7d32; border-radius:4px; padding:8px 12px; box-sizing:border-box; display:flex; align-items:center;">
+            <div style="font-weight:bold; color:#2e7d32; width:120px; font-size:12px;">Layer 4: Transport</div>
+            <div style="font-size:11px; color:#333;">📦 TCP, UDP (Process-to-process)</div>
+        </div>
+        <!-- Arrow -->
+        <div style="position:absolute; top:82px; left:280px; width:2px; height:6px; background-color:#999;"></div>
+
+        <!-- Layer 3 -->
+        <div style="position:absolute; top:88px; left:0px; width:560px; height:38px; background-color:#e3f2fd; border:1px solid #1565c0; border-radius:4px; padding:8px 12px; box-sizing:border-box; display:flex; align-items:center;">
+            <div style="font-weight:bold; color:#1565c0; width:120px; font-size:12px;">Layer 3: Network</div>
+            <div style="font-size:11px; color:#333;">🗺️ IP, ICMP, ARP (Routing)</div>
+        </div>
+        <!-- Arrow -->
+        <div style="position:absolute; top:126px; left:280px; width:2px; height:6px; background-color:#999;"></div>
+
+        <!-- Layer 2 -->
+        <div style="position:absolute; top:132px; left:0px; width:560px; height:38px; background-color:#e1f5fe; border:1px solid #0277bd; border-radius:4px; padding:8px 12px; box-sizing:border-box; display:flex; align-items:center;">
+            <div style="font-weight:bold; color:#0277bd; width:120px; font-size:12px;">Layer 2: Data Link</div>
+            <div style="font-size:11px; color:#333;">🔗 Ethernet, Wi-Fi, MAC (Node-to-node)</div>
+        </div>
+        <!-- Arrow -->
+        <div style="position:absolute; top:170px; left:280px; width:2px; height:6px; background-color:#999;"></div>
+
+        <!-- Layer 1 -->
+        <div style="position:absolute; top:176px; left:0px; width:560px; height:38px; background-color:#f3e5f5; border:1px solid #7b1fa2; border-radius:4px; padding:8px 12px; box-sizing:border-box; display:flex; align-items:center;">
+            <div style="font-weight:bold; color:#7b1fa2; width:120px; font-size:12px;">Layer 1: Physical</div>
+            <div style="font-size:11px; color:#333;">⚡ Cables, Signals, Hardware</div>
+        </div>
+    </div>
+
+    <!-- TCP/IP Details Table -->
+    <div style="position:absolute; top:405px; left:60px; width:560px; height:180px;">
+        <table style="width:100%; border-collapse:collapse; font-size:10px;">
+            <tr style="background-color:#004080; color:white;">
+                <th style="padding:6px; text-align:left; width:10%;">L#</th>
+                <th style="padding:6px; text-align:left; width:20%;">Name</th>
+                <th style="padding:6px; text-align:left; width:35%;">Function</th>
+                <th style="padding:6px; text-align:left; width:35%;">Key Protocols</th>
+            </tr>
+            <tr style="background-color:#ffebee; border-bottom:1px solid #ddd;">
+                <td style="padding:5px;">5</td>
+                <td style="padding:5px; font-weight:bold;">Application</td>
+                <td style="padding:5px;">User services</td>
+                <td style="padding:5px;">HTTP, DNS, SMTP</td>
+            </tr>
+            <tr style="background-color:#e8f5e9; border-bottom:1px solid #ddd;">
+                <td style="padding:5px;">4</td>
+                <td style="padding:5px; font-weight:bold;">Transport</td>
+                <td style="padding:5px;">Process delivery</td>
+                <td style="padding:5px;">TCP, UDP</td>
+            </tr>
+            <tr style="background-color:#e3f2fd; border-bottom:1px solid #ddd;">
+                <td style="padding:5px;">3</td>
+                <td style="padding:5px; font-weight:bold;">Network</td>
+                <td style="padding:5px;">Host routing</td>
+                <td style="padding:5px;">IP, ICMP</td>
+            </tr>
+            <tr style="background-color:#e1f5fe; border-bottom:1px solid #ddd;">
+                <td style="padding:5px;">2</td>
+                <td style="padding:5px; font-weight:bold;">Data Link</td>
+                <td style="padding:5px;">Node delivery</td>
+                <td style="padding:5px;">Ethernet, Wi-Fi</td>
+            </tr>
+            <tr style="background-color:#f3e5f5; border-bottom:1px solid #ddd;">
+                <td style="padding:5px;">1</td>
+                <td style="padding:5px; font-weight:bold;">Physical</td>
+                <td style="padding:5px;">Raw signals</td>
+                <td style="padding:5px;">Cables, Fiber</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- RIGHT COLUMN: COMPARISON & INSIGHTS -->
+    <div style="position:absolute; top:110px; left:660px; width:560px; height:20px; font-size:16px; font-weight:bold; color:#004080;">
+        OSI vs. TCP/IP Comparison
+    </div>
+
+    <!-- Comparison Diagram -->
+    <div style="position:absolute; top:140px; left:660px; width:560px; height:220px;">
+        <!-- OSI Header -->
+        <div style="position:absolute; top:0px; left:0px; width:200px; text-align:center; font-size:11px; font-weight:bold; color:#666;">OSI Model (7 Layers)</div>
+        <!-- TCP/IP Header -->
+        <div style="position:absolute; top:0px; left:360px; width:200px; text-align:center; font-size:11px; font-weight:bold; color:#666;">TCP/IP Model (5 Layers)</div>
+
+        <!-- OSI Stack -->
+        <div style="position:absolute; top:20px; left:20px; width:160px;">
+            <div style="height:24px; background:#ffebee; border:1px solid #ccc; font-size:10px; display:flex; align-items:center; justify-content:center; margin-bottom:2px;">7. Application</div>
+            <div style="height:24px; background:#fff3e0; border:1px solid #ccc; font-size:10px; display:flex; align-items:center; justify-content:center; margin-bottom:2px;">6. Presentation</div>
+            <div style="height:24px; background:#fff8e1; border:1px solid #ccc; font-size:10px; display:flex; align-items:center; justify-content:center; margin-bottom:2px;">5. Session</div>
+            <div style="height:24px; background:#e8f5e9; border:1px solid #ccc; font-size:10px; display:flex; align-items:center; justify-content:center; margin-bottom:2px;">4. Transport</div>
+            <div style="height:24px; background:#e3f2fd; border:1px solid #ccc; font-size:10px; display:flex; align-items:center; justify-content:center; margin-bottom:2px;">3. Network</div>
+            <div style="height:24px; background:#e1f5fe; border:1px solid #ccc; font-size:10px; display:flex; align-items:center; justify-content:center; margin-bottom:2px;">2. Data Link</div>
+            <div style="height:24px; background:#f3e5f5; border:1px solid #ccc; font-size:10px; display:flex; align-items:center; justify-content:center;">1. Physical</div>
+        </div>
+
+        <!-- Connecting Bracket/Lines -->
+        <!-- Top 3 to 1 -->
+        <div style="position:absolute; top:20px; left:190px; width:10px; height:76px; border-top:1px dashed #999; border-bottom:1px dashed #999; border-right:1px dashed #999;"></div>
+        <div style="position:absolute; top:58px; left:200px; width:170px; height:1px; border-top:1px dashed #999;"></div>
+        
+        <!-- Others straight across -->
+        <div style="position:absolute; top:110px; left:190px; width:180px; height:1px; border-top:1px dashed #ccc;"></div>
+        <div style="position:absolute; top:136px; left:190px; width:180px; height:1px; border-top:1px dashed #ccc;"></div>
+        <div style="position:absolute; top:162px; left:190px; width:180px; height:1px; border-top:1px dashed #ccc;"></div>
+        <div style="position:absolute; top:188px; left:190px; width:180px; height:1px; border-top:1px dashed #ccc;"></div>
+
+        <!-- TCP/IP Stack -->
+        <div style="position:absolute; top:20px; left:380px; width:160px;">
+            <div style="height:76px; background:#ffebee; border:2px solid #c62828; font-size:10px; font-weight:bold; display:flex; align-items:center; justify-content:center; margin-bottom:2px;">5. Application</div>
+            <div style="height:24px; background:#e8f5e9; border:2px solid #2e7d32; font-size:10px; display:flex; align-items:center; justify-content:center; margin-bottom:2px;">4. Transport</div>
+            <div style="height:24px; background:#e3f2fd; border:2px solid #1565c0; font-size:10px; display:flex; align-items:center; justify-content:center; margin-bottom:2px;">3. Network</div>
+            <div style="height:24px; background:#e1f5fe; border:2px solid #0277bd; font-size:10px; display:flex; align-items:center; justify-content:center; margin-bottom:2px;">2. Data Link</div>
+            <div style="height:24px; background:#f3e5f5; border:2px solid #7b1fa2; font-size:10px; display:flex; align-items:center; justify-content:center;">1. Physical</div>
+        </div>
+    </div>
+
+    <!-- Differences Table -->
+    <div style="position:absolute; top:370px; left:660px; width:560px; height:150px;">
+        <div style="font-size:12px; font-weight:bold; color:#333; margin-bottom:5px;">Key Differences</div>
+        <table style="width:100%; border-collapse:collapse; font-size:10px;">
+            <tr style="background-color:#004080; color:white;">
+                <th style="padding:4px; text-align:left;">Aspect</th>
+                <th style="padding:4px; text-align:left;">OSI Model</th>
+                <th style="padding:4px; text-align:left;">TCP/IP Model</th>
+            </tr>
+            <tr style="background-color:#f9f9f9; border-bottom:1px solid #eee;">
+                <td style="padding:3px; font-weight:bold;">Development</td>
+                <td style="padding:3px;">ISO standard (Theoretical)</td>
+                <td style="padding:3px;">DoD/DARPA (Practical)</td>
+            </tr>
+            <tr style="background-color:#fff; border-bottom:1px solid #eee;">
+                <td style="padding:3px; font-weight:bold;">Approach</td>
+                <td style="padding:3px;">Protocol-independent reference</td>
+                <td style="padding:3px;">Protocol-specific solution</td>
+            </tr>
+            <tr style="background-color:#f9f9f9; border-bottom:1px solid #eee;">
+                <td style="padding:3px; font-weight:bold;">Layers</td>
+                <td style="padding:3px;">7 separate layers</td>
+                <td style="padding:3px;">5 (condenses upper layers)</td>
+            </tr>
+            <tr style="background-color:#fff; border-bottom:1px solid #eee;">
+                <td style="padding:3px; font-weight:bold;">Session/Pres</td>
+                <td style="padding:3px;">Distinct layers</td>
+                <td style="padding:3px;">Combined into Application</td>
+            </tr>
+            <tr style="background-color:#f9f9f9; border-bottom:1px solid #eee;">
+                <td style="padding:3px; font-weight:bold;">Primary Use</td>
+                <td style="padding:3px;">Education & Troubleshooting</td>
+                <td style="padding:3px;">Real-world Internet</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Insight Box ("Why Both Matter") -->
+    <div style="position:absolute; top:540px; left:660px; width:560px; height:120px; background-color:#FFF8E1; border:2px solid #FFA000; padding:15px; box-sizing:border-box;">
+        <div style="color:#F57C00; font-size:12px; font-weight:bold; margin-bottom:8px;">WHY BOTH MODELS MATTER</div>
+        <div style="display:flex; justify-content:space-between;">
+            <div style="width:48%;">
+                <div style="font-size:11px; font-weight:bold; margin-bottom:4px; color:#333;">Use OSI Model For:</div>
+                <ul style="margin:0; padding-left:15px; font-size:10px; color:#444; line-height:1.4;">
+                    <li>Learning networking concepts</li>
+                    <li>Troubleshooting specific layer issues</li>
+                    <li>Vendor-neutral communication</li>
+                </ul>
+            </div>
+            <div style="width:48%;">
+                <div style="font-size:11px; font-weight:bold; margin-bottom:4px; color:#333;">Use TCP/IP Model For:</div>
+                <ul style="margin:0; padding-left:15px; font-size:10px; color:#444; line-height:1.4;">
+                    <li>Actual network implementation</li>
+                    <li>Understanding Internet protocols</li>
+                    <li>Cloud & Infrastructure operations</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div style="position:absolute; top:680px; left:60px; width:600px; height:20px; font-size:9px; color:#999999;">
+        Source: Network Engineering Standards; ISO/IEC 7498-1; RFC 1122
+    </div>
+    <div style="position:absolute; top:680px; left:1180px; width:40px; height:20px; font-size:10px; color:#666666; text-align:right;">
+        4
+    </div>
+
+</div>

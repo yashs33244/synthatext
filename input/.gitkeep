@@ -1,0 +1,10 @@
+# Place your source files here
+# Supported formats: PDF, TXT, MD
+#
+# Examples:
+#   - report.pdf
+#   - content.txt
+#   - document.md
+#
+# Update config.yaml with the file name, then run:
+#   python generate_ppt.py

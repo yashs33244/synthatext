@@ -1,0 +1,186 @@
+<div id="slide" style="width:1280px; height:720px; position:relative; background-color:#FFFFFF; overflow:hidden; font-family:Arial, sans-serif;">
+
+    <!-- Title Section -->
+    <div style="position:absolute; top:30px; left:60px; width:1160px; height:40px;">
+        <h1 style="margin:0; font-size:32px; color:#004080; font-weight:bold;">Quick Reference Card</h1>
+    </div>
+    <div style="position:absolute; top:75px; left:60px; width:1160px; height:20px;">
+        <p style="margin:0; font-size:14px; color:#666666;">MLOps Foundation Series • Network Models & Ports</p>
+    </div>
+
+    <!-- Column 1: OSI Model -->
+    <div style="position:absolute; top:120px; left:60px; width:360px;">
+        <!-- Header -->
+        <div style="position:absolute; top:0; left:0; width:360px; height:35px; background-color:#004080; color:white; display:flex; align-items:center; padding-left:15px; box-sizing:border-box;">
+            <span style="font-weight:bold; font-size:14px;">OSI Model (7 Layers)</span>
+        </div>
+        
+        <!-- Content -->
+        <div style="position:absolute; top:35px; left:0; width:360px; border:1px solid #CCCCCC;">
+            <!-- Layer 7 -->
+            <div style="height:45px; background-color:#FFFFFF; border-bottom:1px solid #EEEEEE; padding:8px 15px; box-sizing:border-box;">
+                <div style="color:#004080; font-weight:bold; font-size:11px;">Layer 7: Application</div>
+                <div style="font-size:10px; color:#333;">End-user processes (HTTP, FTP, DNS)</div>
+            </div>
+            <!-- Layer 6 -->
+            <div style="height:45px; background-color:#F8F9FA; border-bottom:1px solid #EEEEEE; padding:8px 15px; box-sizing:border-box;">
+                <div style="color:#004080; font-weight:bold; font-size:11px;">Layer 6: Presentation</div>
+                <div style="font-size:10px; color:#333;">Data formatting & encryption (SSL, JPEG)</div>
+            </div>
+            <!-- Layer 5 -->
+            <div style="height:45px; background-color:#FFFFFF; border-bottom:1px solid #EEEEEE; padding:8px 15px; box-sizing:border-box;">
+                <div style="color:#004080; font-weight:bold; font-size:11px;">Layer 5: Session</div>
+                <div style="font-size:10px; color:#333;">Interhost communication (Sessions)</div>
+            </div>
+            <!-- Layer 4 -->
+            <div style="height:45px; background-color:#F8F9FA; border-bottom:1px solid #EEEEEE; padding:8px 15px; box-sizing:border-box;">
+                <div style="color:#004080; font-weight:bold; font-size:11px;">Layer 4: Transport</div>
+                <div style="font-size:10px; color:#333;">End-to-end delivery (TCP, UDP) <span style="color:#E65100;">[Ports]</span></div>
+            </div>
+            <!-- Layer 3 -->
+            <div style="height:45px; background-color:#FFFFFF; border-bottom:1px solid #EEEEEE; padding:8px 15px; box-sizing:border-box;">
+                <div style="color:#004080; font-weight:bold; font-size:11px;">Layer 3: Network</div>
+                <div style="font-size:10px; color:#333;">Path determination (IP) <span style="color:#E65100;">[IP Addr]</span></div>
+            </div>
+            <!-- Layer 2 -->
+            <div style="height:45px; background-color:#F8F9FA; border-bottom:1px solid #EEEEEE; padding:8px 15px; box-sizing:border-box;">
+                <div style="color:#004080; font-weight:bold; font-size:11px;">Layer 2: Data Link</div>
+                <div style="font-size:10px; color:#333;">Physical addressing (Ethernet) <span style="color:#E65100;">[MAC]</span></div>
+            </div>
+            <!-- Layer 1 -->
+            <div style="height:45px; background-color:#FFFFFF; padding:8px 15px; box-sizing:border-box;">
+                <div style="color:#004080; font-weight:bold; font-size:11px;">Layer 1: Physical</div>
+                <div style="font-size:10px; color:#333;">Media, signal, binary transmission</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Column 2: TCP/IP Model -->
+    <div style="position:absolute; top:120px; left:460px; width:360px;">
+        <!-- Header -->
+        <div style="position:absolute; top:0; left:0; width:360px; height:35px; background-color:#0066CC; color:white; display:flex; align-items:center; padding-left:15px; box-sizing:border-box;">
+            <span style="font-weight:bold; font-size:14px;">TCP/IP Model (Mapped)</span>
+        </div>
+        
+        <!-- Content -->
+        <div style="position:absolute; top:35px; left:0; width:360px; border:1px solid #CCCCCC;">
+            <!-- Layer 5 (Maps to OSI 7,6,5) -->
+            <div style="height:135px; background-color:#E8F4FD; border-bottom:1px solid #EEEEEE; padding:15px; box-sizing:border-box; display:flex; flex-direction:column; justify-content:center;">
+                <div style="color:#0066CC; font-weight:bold; font-size:12px; margin-bottom:5px;">Layer 5: Application</div>
+                <div style="font-size:11px; color:#333; line-height:1.4;">
+                    Combines OSI Application, Presentation, and Session layers.<br/>
+                    • Protocols: HTTP, FTP, SSH, DNS, SMTP<br/>
+                    • Focus: Data generation and encoding
+                </div>
+            </div>
+            <!-- Layer 4 -->
+            <div style="height:45px; background-color:#F8F9FA; border-bottom:1px solid #EEEEEE; padding:8px 15px; box-sizing:border-box;">
+                <div style="color:#0066CC; font-weight:bold; font-size:11px;">Layer 4: Transport</div>
+                <div style="font-size:10px; color:#333;">TCP (Reliable), UDP (Fast/Stateless)</div>
+            </div>
+            <!-- Layer 3 -->
+            <div style="height:45px; background-color:#FFFFFF; border-bottom:1px solid #EEEEEE; padding:8px 15px; box-sizing:border-box;">
+                <div style="color:#0066CC; font-weight:bold; font-size:11px;">Layer 3: Network</div>
+                <div style="font-size:10px; color:#333;">IP Addressing & Packet Routing</div>
+            </div>
+            <!-- Layer 2 -->
+            <div style="height:45px; background-color:#F8F9FA; border-bottom:1px solid #EEEEEE; padding:8px 15px; box-sizing:border-box;">
+                <div style="color:#0066CC; font-weight:bold; font-size:11px;">Layer 2: Data Link</div>
+                <div style="font-size:10px; color:#333;">Frame handling & MAC Addressing</div>
+            </div>
+            <!-- Layer 1 -->
+            <div style="height:45px; background-color:#FFFFFF; padding:8px 15px; box-sizing:border-box;">
+                <div style="color:#0066CC; font-weight:bold; font-size:11px;">Layer 1: Physical</div>
+                <div style="font-size:10px; color:#333;">Hardware transmission media</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Column 3: Essential Ports -->
+    <div style="position:absolute; top:120px; left:860px; width:360px;">
+        <!-- Header -->
+        <div style="position:absolute; top:0; left:0; width:360px; height:35px; background-color:#666666; color:white; display:flex; align-items:center; padding-left:15px; box-sizing:border-box;">
+            <span style="font-weight:bold; font-size:14px;">Essential Ports Dictionary</span>
+        </div>
+        
+        <!-- Table Header -->
+        <div style="position:absolute; top:35px; left:0; width:360px; height:25px; background-color:#EEEEEE; border:1px solid #CCCCCC; border-bottom:none; box-sizing:border-box;">
+            <div style="position:absolute; top:5px; left:15px; width:60px; font-weight:bold; font-size:10px; color:#333;">PORT</div>
+            <div style="position:absolute; top:5px; left:80px; width:250px; font-weight:bold; font-size:10px; color:#333;">SERVICE / PROTOCOL</div>
+        </div>
+
+        <!-- Table Content -->
+        <div style="position:absolute; top:60px; left:0; width:360px; border:1px solid #CCCCCC; font-size:11px;">
+            <!-- Rows -->
+            <div style="height:30px; background-color:#FFFFFF; border-bottom:1px solid #F0F0F0; padding-top:7px;">
+                <div style="position:absolute; left:15px; font-weight:bold; color:#004080;">22</div>
+                <div style="position:absolute; left:80px;">SSH (Secure Shell)</div>
+            </div>
+            <div style="height:30px; background-color:#F9F9F9; border-bottom:1px solid #F0F0F0; padding-top:7px;">
+                <div style="position:absolute; left:15px; font-weight:bold; color:#004080;">25</div>
+                <div style="position:absolute; left:80px;">SMTP (Email)</div>
+            </div>
+            <div style="height:30px; background-color:#FFFFFF; border-bottom:1px solid #F0F0F0; padding-top:7px;">
+                <div style="position:absolute; left:15px; font-weight:bold; color:#004080;">53</div>
+                <div style="position:absolute; left:80px;">DNS (Domain Name System)</div>
+            </div>
+            <div style="height:30px; background-color:#F9F9F9; border-bottom:1px solid #F0F0F0; padding-top:7px;">
+                <div style="position:absolute; left:15px; font-weight:bold; color:#004080;">80</div>
+                <div style="position:absolute; left:80px;">HTTP (Web Traffic)</div>
+            </div>
+            <div style="height:30px; background-color:#FFFFFF; border-bottom:1px solid #F0F0F0; padding-top:7px;">
+                <div style="position:absolute; left:15px; font-weight:bold; color:#004080;">443</div>
+                <div style="position:absolute; left:80px;">HTTPS (Secure Web)</div>
+            </div>
+            <div style="height:30px; background-color:#F9F9F9; border-bottom:1px solid #F0F0F0; padding-top:7px;">
+                <div style="position:absolute; left:15px; font-weight:bold; color:#004080;">3306</div>
+                <div style="position:absolute; left:80px;">MySQL Database</div>
+            </div>
+            <div style="height:30px; background-color:#FFFFFF; border-bottom:1px solid #F0F0F0; padding-top:7px;">
+                <div style="position:absolute; left:15px; font-weight:bold; color:#004080;">5000</div>
+                <div style="position:absolute; left:80px;">Flask App (Default)</div>
+            </div>
+            <div style="height:30px; background-color:#F9F9F9; border-bottom:1px solid #F0F0F0; padding-top:7px;">
+                <div style="position:absolute; left:15px; font-weight:bold; color:#004080;">5432</div>
+                <div style="position:absolute; left:80px;">PostgreSQL Database</div>
+            </div>
+            <div style="height:30px; background-color:#FFFFFF; border-bottom:1px solid #F0F0F0; padding-top:7px;">
+                <div style="position:absolute; left:15px; font-weight:bold; color:#004080;">6379</div>
+                <div style="position:absolute; left:80px;">Redis Cache</div>
+            </div>
+            <div style="height:30px; background-color:#F9F9F9; border-bottom:1px solid #F0F0F0; padding-top:7px;">
+                <div style="position:absolute; left:15px; font-weight:bold; color:#004080;">8080</div>
+                <div style="position:absolute; left:80px;">HTTP Alternative / Proxy</div>
+            </div>
+            <div style="height:30px; background-color:#FFFFFF; border-bottom:1px solid #F0F0F0; padding-top:7px;">
+                <div style="position:absolute; left:15px; font-weight:bold; color:#004080;">9090</div>
+                <div style="position:absolute; left:80px;">Prometheus Metrics</div>
+            </div>
+            <div style="height:30px; background-color:#F9F9F9; padding-top:7px;">
+                <div style="position:absolute; left:15px; font-weight:bold; color:#004080;">27017</div>
+                <div style="position:absolute; left:80px;">MongoDB</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Insight Box (So What?) -->
+    <div style="position:absolute; top:540px; left:60px; width:1160px; height:100px; background-color:#FFF8E1; border:2px solid #FFA000; box-sizing:border-box; padding:15px 20px;">
+        <div style="color:#B36B00; font-weight:bold; font-size:14px; margin-bottom:8px;">PRACTICAL IMPLICATION: MAPPING LAYERS TO INFRASTRUCTURE</div>
+        <div style="font-size:12px; color:#333; line-height:1.5;">
+            While the OSI model provides the theoretical framework for network isolation, MLOps engineers primarily operate at the <strong>TCP/IP Transport Layer (Layer 4)</strong> when configuring Security Groups and Firewalls (managing Ports). Understanding the correlation between specific services (e.g., PostgreSQL) and their default ports (5432) is critical for debugging connectivity in distributed cloud environments (VPCs).
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div style="position:absolute; top:680px; left:60px; width:800px; height:20px;">
+        <p style="margin:0; font-size:10px; color:#999999;">
+            Source: MLOps Foundation Series | Last Updated: January 2026 | Next Session: Cloud Networking with AWS VPCs
+        </p>
+    </div>
+    
+    <!-- Page Number -->
+    <div style="position:absolute; top:680px; left:1180px; width:40px; height:20px; text-align:right;">
+        <p style="margin:0; font-size:10px; color:#999999;">16</p>
+    </div>
+
+</div>

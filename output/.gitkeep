@@ -1,0 +1,7 @@
+# Generated slides will appear here
+#
+# Files:
+#   - slide_1.html, slide_2.html, ... (intermediate HTML)
+#   - Presentation_YYYY-MM-DD.pdf (or .pptx)
+#
+# HTML files are kept for debugging unless cleanup_html is enabled in config.yaml
