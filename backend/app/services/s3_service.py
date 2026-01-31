@@ -124,7 +124,7 @@ class S3Service:
     ) -> str:
         """Generate a backend proxy URL to avoid CORS issues."""
         # ALWAYS use backend proxy to avoid CORS with S3/iframes
-        return f"http://localhost:8000/api/v1/storage/{s3_key}"
+        return f"{self.settings.backend_url}/api/v1/storage/{s3_key}"
 
     async def delete_file(self, s3_key: str) -> bool:
         """Delete a file from S3 or local storage."""

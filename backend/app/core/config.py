@@ -13,24 +13,36 @@ class Settings(BaseSettings):
     # ============================================
     @property
     def backend_url(self) -> str:
-        """Backend API URL with production fallback to local"""
-        if self.environment == "production":
-            return os.getenv("BACKEND_URL", "https://api-synthatext.itsyash.space")
-        return "http://localhost:8000"
+        """Backend API URL - Production first, then environment fallback"""
+        # Allow explicit override
+        if os.getenv("BACKEND_URL"):
+            return os.getenv("BACKEND_URL")
+        # Default to production URL (change for local dev)
+        return "https://api-synthatext.itsyash.space"
+        # Uncomment for local development:
+        # return "http://localhost:8000"
     
     @property
     def frontend_url(self) -> str:
-        """Frontend app URL with production fallback to local"""
-        if self.environment == "production":
-            return os.getenv("FRONTEND_URL", "https://app-synthatext.itsyash.space")
-        return "http://localhost:3001"
+        """Frontend app URL - Production first, then environment fallback"""
+        # Allow explicit override
+        if os.getenv("FRONTEND_URL"):
+            return os.getenv("FRONTEND_URL")
+        # Default to production URL
+        return "https://app-synthatext.itsyash.space"
+        # Uncomment for local development:
+        # return "http://localhost:3001"
     
     @property
     def landing_url(self) -> str:
-        """Landing page URL with production fallback to local"""
-        if self.environment == "production":
-            return os.getenv("LANDING_URL", "https://synthatext.itsyash.space")
-        return "http://localhost:3000"
+        """Landing page URL - Production first, then environment fallback"""
+        # Allow explicit override
+        if os.getenv("LANDING_URL"):
+            return os.getenv("LANDING_URL")
+        # Default to production URL
+        return "https://synthatext.itsyash.space"
+        # Uncomment for local development:
+        # return "http://localhost:3000"
     
     # ============================================
     # Database & Redis (Secrets - from ENV only)
@@ -90,17 +102,16 @@ class Settings(BaseSettings):
     # ============================================
     @property
     def cors_origins(self) -> list[str]:
-        """CORS allowed origins based on environment"""
-        if self.environment == "production":
-            return [
-                "https://synthatext.itsyash.space",
-                "https://app-synthatext.itsyash.space",
-                "https://api-synthatext.itsyash.space",
-            ]
+        """CORS allowed origins - Production first"""
+        # Default to production URLs (add localhost for local dev)
         return [
-            "http://localhost:3000",
-            "http://localhost:3001",
-            "http://localhost:8000",
+            "https://synthatext.itsyash.space",
+            "https://app-synthatext.itsyash.space",
+            "https://api-synthatext.itsyash.space",
+            # Uncomment for local development:
+            # "http://localhost:3000",
+            # "http://localhost:3001",
+            # "http://localhost:8000",
         ]
     
     cors_allow_credentials: bool = True

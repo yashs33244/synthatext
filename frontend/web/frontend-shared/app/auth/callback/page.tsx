@@ -1,11 +1,11 @@
 'use client';
 
 import { Suspense, useEffect } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 import { setTokens } from '@/lib/api';
+import { getLandingUrl, getAppUrl } from '@/lib/config';
 
 function CallbackContent() {
-  const router = useRouter();
   const searchParams = useSearchParams();
 
   useEffect(() => {
@@ -16,13 +16,14 @@ function CallbackContent() {
       // Store tokens in cookies
       setTokens(accessToken, refreshToken);
       
-      // Redirect to dashboard
-      router.push('/dashboard');
+      // Use full page redirect to ensure AuthContext reinitializes with new tokens
+      // This is necessary because router.push() doesn't reload the page
+      window.location.href = `${getAppUrl()}/dashboard`;
     } else {
       // No tokens, redirect to landing login
-      window.location.href = 'http://localhost:3000/login';
+      window.location.href = `${getLandingUrl()}/login`;
     }
-  }, [searchParams, router]);
+  }, [searchParams]);
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-[#F7F9FA]">

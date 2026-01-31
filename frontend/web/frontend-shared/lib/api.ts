@@ -10,9 +10,10 @@ import type {
   User,
 } from "@/types/auth"
 import type { UserProfile, UpdateProfileData, ChangePasswordData, ChangeEmailData } from "@/types/user"
+import { getBackendUrl } from "./config"
 
-// Auth API URL (Node.js auth service)
-const API_URL = process.env.NEXT_PUBLIC_AUTH_API_URL || "http://localhost:3000"
+// Auth API URL - Use centralized config
+const API_URL = getBackendUrl()
 
 // Token management
 const TOKEN_KEY = "access_token"

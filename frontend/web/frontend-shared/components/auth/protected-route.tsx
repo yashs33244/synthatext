@@ -5,6 +5,7 @@ import type React from "react"
 import { useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { useAuth } from "@/context/auth-context"
+import { getLandingUrl } from "@/lib/config"
 
 interface ProtectedRouteProps {
   children: React.ReactNode
@@ -12,21 +13,22 @@ interface ProtectedRouteProps {
   redirectTo?: string
 }
 
-export function ProtectedRoute({ children, requireAuth = true, redirectTo = "http://localhost:3000/login" }: ProtectedRouteProps) {
+export function ProtectedRoute({ children, requireAuth = true, redirectTo }: ProtectedRouteProps) {
   const { isAuthenticated, isLoading } = useAuth()
   const router = useRouter()
+  const loginUrl = redirectTo || `${getLandingUrl()}/login`
 
   useEffect(() => {
     if (!isLoading) {
       if (requireAuth && !isAuthenticated) {
         console.log("Not authenticated, redirecting to landing page login")
         // Redirect to landing page login (full URL to change domain)
-        window.location.href = redirectTo
+        window.location.href = loginUrl
       } else if (!requireAuth && isAuthenticated) {
         router.push("/dashboard")
       }
     }
-  }, [isAuthenticated, isLoading, requireAuth, redirectTo, router])
+  }, [isAuthenticated, isLoading, requireAuth, loginUrl, router])
 
   if (isLoading) {
     return (

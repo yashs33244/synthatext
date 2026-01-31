@@ -2,7 +2,11 @@ import axios, { AxiosError } from 'axios';
 import { getAccessToken } from '@/lib/api';
 
 // PPT backend API URL (FastAPI)
-const API_BASE_URL = process.env.NEXT_PUBLIC_PPT_API_URL || 'http://localhost:8000';
+// Production URL first, then environment variable, then localhost fallback
+const API_BASE_URL = process.env.NEXT_PUBLIC_PPT_API_URL || 'https://api-synthatext.itsyash.space';
+// Uncomment for local development:
+// const API_BASE_URL = process.env.NEXT_PUBLIC_PPT_API_URL || 'http://localhost:8000';
+
 const API_V1_PREFIX = '/api/v1';
 
 const apiClient = axios.create({

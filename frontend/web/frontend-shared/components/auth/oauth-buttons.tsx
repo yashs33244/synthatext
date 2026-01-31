@@ -5,6 +5,7 @@ import { Github, Loader2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { authApi } from "@/lib/api"
 import { useToast } from "@/hooks/use-toast"
+import { getBackendUrl } from "@/lib/config"
 
 const oauthProviders = [
   {
@@ -46,7 +47,7 @@ export function OAuthButtons() {
     setLoadingProvider(providerId)
     try {
       // Get the OAuth authorization URL from the backend
-      const response = await fetch(`${process.env.NEXT_PUBLIC_AUTH_API_URL || 'http://localhost:3000'}/auth/oauth/${providerId}`)
+      const response = await fetch(`${getBackendUrl()}/auth/oauth/${providerId}`)
       const data = await response.json()
       
       if (data.success && data.url) {

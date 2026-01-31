@@ -14,45 +14,48 @@ const isLocal = !isProduction;
 // ============================================
 
 /**
- * Backend API URL - uses localhost for local dev, production URL for production
+ * Backend API URL - Production first, then localhost fallback
  */
 export const getBackendUrl = (): string => {
   if (process.env.NEXT_PUBLIC_BACKEND_URL) {
     return process.env.NEXT_PUBLIC_BACKEND_URL;
   }
   
-  if (isProduction) {
-    return 'https://api-synthatext.itsyash.space';
-  }
-  return 'http://localhost:8000';
+  // Default to production URL (change this line for local dev)
+  return 'https://api-synthatext.itsyash.space';
+  
+  // Uncomment for local development:
+  // return 'http://localhost:8000';
 };
 
 /**
- * Frontend App URL
+ * Frontend App URL - Production first, then localhost fallback
  */
 export const getAppUrl = (): string => {
   if (process.env.NEXT_PUBLIC_APP_URL) {
     return process.env.NEXT_PUBLIC_APP_URL;
   }
   
-  if (isProduction) {
-    return 'https://app-synthatext.itsyash.space';
-  }
-  return 'http://localhost:3001';
+  // Default to production URL
+  return 'https://app-synthatext.itsyash.space';
+  
+  // Uncomment for local development:
+  // return 'http://localhost:3001';
 };
 
 /**
- * Landing Page URL
+ * Landing Page URL - Production first, then localhost fallback
  */
 export const getLandingUrl = (): string => {
   if (process.env.NEXT_PUBLIC_LANDING_URL) {
     return process.env.NEXT_PUBLIC_LANDING_URL;
   }
   
-  if (isProduction) {
-    return 'https://synthatext.itsyash.space';
-  }
-  return 'http://localhost:3000';
+  // Default to production URL
+  return 'https://synthatext.itsyash.space';
+  
+  // Uncomment for local development:
+  // return 'http://localhost:3000';
 };
 
 // ============================================
